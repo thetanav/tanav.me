@@ -1,7 +1,6 @@
 import { projects } from "../lib/projects";
 import { oss } from "../lib/oss";
 import getPostMetadata from "../lib/posts";
-import RecentlyPlayed from "./components/recently-played";
 import {
   ChevronRightIcon,
   GitPullRequestArrowIcon,
@@ -22,15 +21,15 @@ import {
   IconBrandMedium,
   IconBrandX,
 } from "@tabler/icons-react";
-import Star from "./components/star";
+import Border from "./components/border";
 
 export default function Page() {
   const recentProjects = projects.slice(0, 3);
   const recentPosts = getPostMetadata("posts").slice(0, 3);
 
   return (
-    <section className="flex flex-col divide-y divide-[var(--border)]">
-      <section className="flex flex-col gap-6 pb-8 mb-8 px-3 sm:px-6">
+    <section className="flex flex-col gap-6">
+      <section className="flex flex-col gap-6 px-3 sm:px-6">
         <Image
           src="/header.jpg"
           alt="header header"
@@ -115,15 +114,16 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-6 pb-8 mb-8 px-3 sm:px-6">
-        <section className="flex flex-col gap-2">
-          <RecentlyPlayed />
-        </section>
-        <GithubCalendarClient username="thetanav" blockSize={6} />
+      <Border />
+
+      <section className="flex flex-col gap-6 px-3 sm:px-6">
+        <GithubCalendarClient username="thetanav" blockSize={8} />
       </section>
 
-      <section className="flex flex-col gap-8 pb-8 mb-8 px-6">
-        <h2 className="text-lg font-medium text-[var(--text)]">
+      <Border />
+
+      <section className="flex flex-col gap-8 px-6">
+        <h2 className="text-lg font-semibold text-(--text)">
           Some of my Projects
         </h2>
         <div className="flex flex-col gap-6">
@@ -134,7 +134,7 @@ export default function Page() {
               rel="noopener noreferrer"
               key={project.name}
               className="group flex items-center gap-4 cursor-pointer">
-              <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)]">
+              <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-(--border) bg-(--surface)">
                 <Image
                   width={100}
                   height={100}
@@ -144,25 +144,25 @@ export default function Page() {
                 />
               </div>
               <div className="flex flex-col">
-                <h3 className="text-[var(--text)] transition-opacity capitalize text-sm">
+                <h3 className="text-(--text) transition-opacity capitalize text-sm mb-1">
                   {project.name}
                 </h3>
-                <p className="text-sm text-[var(--text-muted)]">
-                  {project.brief}
-                </p>
+                <p className="text-sm text-(--text-muted)">{project.brief}</p>
               </div>
             </a>
           ))}
         </div>
         <Link
           href="/projects"
-          className="text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors">
+          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors">
           View all projects →
         </Link>
       </section>
 
-      <section className="flex flex-col gap-8 pb-8 mb-8 px-3 sm:px-6">
-        <h2 className="text-lg font-medium text-[var(--text)]">
+      <Border />
+
+      <section className="flex flex-col gap-8 px-3 sm:px-6">
+        <h2 className="text-lg font-semibold text-(--text)">
           Some of my Opensource Work
         </h2>
         <div className="flex flex-col gap-6">
@@ -174,17 +174,19 @@ export default function Page() {
               rel="noopener noreferrer"
               className="group flex items-center gap-4 group-hover:opacity-70 transition-opacity">
               <GitPullRequestArrowIcon className="h-4 w-4" />
-              <h3 className="text-[var(--text)] group-hover:opacity-70 text-sm transition-opacity">
+              <h3 className="text-(--text) group-hover:opacity-70 text-sm transition-opacity">
                 {contri.name}
               </h3>
-              <ChevronRightIcon className="ml-auto h-4 w-4 text-[var(--text-muted)]" />
+              <ChevronRightIcon className="ml-auto h-4 w-4 text-(--text-muted)" />
             </a>
           ))}
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 pb-8 mb-8 px-3 sm:px-6">
-        <h2 className="text-lg font-medium text-[var(--text)]">
+      <Border />
+
+      <section className="flex flex-col gap-8 px-3 sm:px-6">
+        <h2 className="text-lg font-semibold text-(--text)">
           Some of my Writings
         </h2>
         <div className="flex flex-col gap-6">
@@ -194,10 +196,10 @@ export default function Page() {
               href={`/blog/${post.slug}`}
               className="group flex flex-col gap-2">
               <div className="flex items-baseline justify-between">
-                <h3 className="text-sm text-[var(--text)] group-hover:opacity-70 transition-opacity">
+                <h3 className="text-sm text-(--text) group-hover:opacity-70 transition-opacity">
                   {post.title}
                 </h3>
-                <span className="text-xs text-[var(--text-muted)] tabular-nums">
+                <span className="text-xs text(--text-muted) tabular-nums">
                   {post.date.toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
@@ -209,13 +211,9 @@ export default function Page() {
         </div>
         <Link
           href="/blog"
-          className="text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors">
+          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors">
           Read more →
         </Link>
-      </section>
-
-      <section className="flex flex-col gap-8 pb-8 mb-8 px-3 sm:px-6 flex items-center">
-        <Star />
       </section>
     </section>
   );

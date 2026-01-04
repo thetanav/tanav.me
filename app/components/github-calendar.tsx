@@ -2,6 +2,7 @@
 
 import GitHubCalendar from "react-github-calendar";
 import { useEffect, useState } from "react";
+import { Loader } from "lucide-react";
 
 export default function GithubCalendarClient({
   username = "thetanav",
@@ -45,15 +46,17 @@ export default function GithubCalendarClient({
   }, []);
 
   return (
-    <GitHubCalendar
-      style={{
-        width: "fit",
-      }}
-      hideColorLegend
-      username={username}
-      hideTotalCount
-      colorScheme={theme === "dark" ? "dark" : "light"}
-      blockSize={blockSize}
-    />
+    <div className="relative w-fit left-1/2 -translate-x-1/2 overflow-visible bg-background">
+      <GitHubCalendar
+        loading={false}
+        style={{
+          width: "full",
+        }}
+        blockRadius={0}
+        username={username}
+        colorScheme={theme === "dark" ? "dark" : "light"}
+        blockSize={blockSize}
+      />
+    </div>
   );
 }

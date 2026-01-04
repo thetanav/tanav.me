@@ -2,14 +2,16 @@ import "./global.css";
 import type { Metadata } from "next";
 import { Navbar } from "./components/nav";
 import NextTopLoader from "nextjs-toploader";
-import { GeistSans } from "geist/font/sans";
+import { Geist } from "next/font/google";
 import { PostHogProvider } from "./components/PostHogProvider";
 import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
-import Oneko from "./components/cat";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Border from "./components/border";
 
-const sans = GeistSans;
+const sans = Geist({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tanav.me"),
@@ -72,14 +74,21 @@ export default function RootLayout({
                 height={2}
                 showSpinner={false}
               />
-              <div className="mx-auto max-w-xl py-5 sm:py-10 border-l border-r border-[var(--border)] min-h-screen">
-                <header className="px-3 sm:px-6 pb-3 mb-4 border-b flex items-center justify-between border-[var(--border)]">
+              <div className="mx-auto max-w-2xl py-5 border-l border-r border-(--border) border-double-l min-h-screen">
+                <Border />
+                <header className="px-3 sm:px-6 flex items-center justify-between py-3">
                   <Navbar />
                   <ThemeToggle />
                 </header>
-                <main className="px-0 py-3">{children}</main>
+                <Border />
+                <main className="my-6">{children}</main>
+                <Border />
+                <footer className="mt-6">
+                  <div className="flex flex-col items-center justify-center gap-2 text-sm text-(--text-muted)">
+                    tanav poswal
+                  </div>
+                </footer>
               </div>
-              <Oneko />
             </PostHogProvider>
           </ThemeProvider>
         </TooltipProvider>
