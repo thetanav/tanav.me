@@ -53,6 +53,7 @@ export const projects: Project[] = [
   {
     img: "/images/trading.png",
     git: "https://github.com/thetanav/trading-system",
+    info: "https://x.com/tanavtwt/status/2008236317537431580",
     name: "trade exchange",
     brief: "real-time trading app with live order book.",
     tech: ["Express", "NextJs", "Redis", "ChartJs", "WebSocket"],
