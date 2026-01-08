@@ -74,7 +74,7 @@ export default function RootLayout({
                 height={2}
                 showSpinner={false}
               />
-              <div className="mx-auto max-w-2xl py-5 border-l border-r border-(--border) border-double-l min-h-screen">
+              <div className="mx-auto max-w-2xl py-5 border-double-l border-double-r border-(--border) border-double-l min-h-screen">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
                   <Navbar />
