@@ -1,28 +1,46 @@
 import { Redis } from "@upstash/redis";
+import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
+import { nanoid } from "nanoid";
 
 const redis = Redis.fromEnv();
+const TTL = 60 * 60 * 24; // 24 hours
+const KEY = "views";
 
-export async function GET(request: Request) {
-  const now = Date.now();
-  const windowMs = 24 * 60 * 60 * 1000;
-  const cutoff = now - windowMs;
+export async function GET(req: NextRequest, res: NextResponse) {
+  // if (req.nextUrl.hostname === "localhost") {
+  //   return NextResponse.json({ count: "dev" });
+  // }
 
-  if (request.url.includes("localhost")) {
-    console.log("dev");
-    return Response.json({ count: "dev" });
+  const cookieStore = await cookies();
+  let id: string | undefined = cookieStore.get("visitorId")?.value;
+
+  if (id === undefined) {
+    id = nanoid();
+    cookieStore.set("visitorId", id, {
+      maxAge: 60 * 60 * 24,
+      httpOnly: true,
+      path: "/",
+    });
   }
 
-  // Add new view with timestamp
-  await redis.zadd("views24", {
-    score: now,
-    member: `view-${now}`,
+  // Check if IP already exists in list
+  const exists = await redis.lpos(KEY, id);
+
+  if (exists === null) {
+    // Add new IP
+    await redis.lpush(KEY, id);
+
+    // Ensure TTL exists
+    const ttl = await redis.ttl(KEY);
+    if (ttl === -1) {
+      await redis.expire(KEY, TTL);
+    }
+  }
+
+  const count = await redis.llen(KEY);
+
+  return NextResponse.json({
+    count,
   });
-
-  // Remove entries older than 24h
-  await redis.zremrangebyscore("views24", 0, cutoff);
-
-  // Count only the last 24h
-  const count = await redis.zcount("views24", cutoff, now);
-
-  return Response.json({ count });
 }

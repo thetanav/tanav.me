@@ -1,5 +1,5 @@
 "use client";
-import { EyeIcon } from "lucide-react";
+import { EyeIcon, Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ViewsLast24() {
@@ -15,7 +15,11 @@ export default function ViewsLast24() {
   return (
     <div className="flex gap-1 items-center justify-center opacity-40">
       <EyeIcon className="w-4 h-4" />
-      <span className="text-[var(--text)] text-sm">{count}/24h</span>
+      {!count || count === undefined ? (
+        <Loader className="text(--text-muted) animate-spin w-4" />
+      ) : (
+        <span className="text-[var(--text)] text-sm">{count}/24h</span>
+      )}
     </div>
   );
 }
