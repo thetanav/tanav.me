@@ -7,10 +7,10 @@ const redis = Redis.fromEnv();
 const TTL = 60 * 60 * 24; // 24 hours
 const KEY = "views";
 
-export async function GET(req: NextRequest, res: NextResponse) {
-  // if (req.nextUrl.hostname === "localhost") {
-  //   return NextResponse.json({ count: "dev" });
-  // }
+export async function GET(req: NextRequest) {
+  if (req.nextUrl.hostname === "localhost") {
+    return NextResponse.json({ count: "dev" });
+  }
 
   const cookieStore = await cookies();
   let id: string | undefined = cookieStore.get("visitorId")?.value;
