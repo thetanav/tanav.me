@@ -46,8 +46,7 @@ const ImgBlock = ({ src, alt, className }: any) => {
           <img
             src={src}
             alt={alt}
-            className="max-w-full max-h-full object-contain transition-all duration-300 ease-out"
-            onClick={(e) => e.stopPropagation()}
+            className="max-w-[80vw] min-w-[60vw] h-fit object-contain transition-all duration-300 ease-out cursor-zoom-out"
           />
           <button
             className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer group transition-all duration-300"

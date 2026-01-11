@@ -30,7 +30,7 @@ const CodeBlock = ({ children, className }: any) => {
       </button>
       <code
         ref={codeRef}
-        className={`hljs block !bg-[#282c34] p-6 text-sm leading-relaxed ${className}`}>
+        className={`hljs block bg-transparent p-6 text-sm leading-relaxed ${className}`}>
         {children}
       </code>
     </div>

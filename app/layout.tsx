@@ -81,13 +81,14 @@ export default function RootLayout({
                   <ThemeToggle />
                 </header>
                 <Border />
-                <main className="my-6">{children}</main>
+                <main className="my-6 min-h-[77vh]">{children}</main>
                 <Border />
-                <footer className="mt-6">
+                <footer className="my-3">
                   <div className="flex flex-col items-center justify-center gap-2 text-sm text-(--text-muted)">
                     tanav poswal
                   </div>
                 </footer>
+                <Border />
               </div>
             </PostHogProvider>
           </ThemeProvider>
