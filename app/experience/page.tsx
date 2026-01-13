@@ -15,7 +15,7 @@ export default function ExperiencePage() {
       </h1>
       <div className="flex flex-col gap-8">
         {experience.map((job) => (
-          <div className="flex gap-3 w-full">
+          <div className="flex gap-3 w-full" key={job.url}>
             <Image
               alt={job.company}
               width={80}

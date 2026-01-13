@@ -46,7 +46,7 @@ export default function GithubCalendarClient({
   }, []);
 
   return (
-    <div className="relative w-fit left-1/2 -translate-x-1/2 overflow-visible bg-background">
+    <div className="relative w-fit max-w-screen left-1/2 -translate-x-1/2 overflow-visible bg-background px-2">
       <GitHubCalendar
         loading={false}
         style={{

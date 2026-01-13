@@ -43,8 +43,11 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
         <h3 className="text-md font-semibold text-[var(--text)] capitalize first-letter:text-lg">
           {name}
         </h3>
+        <p className="text-sm text-[var(--text-muted)] first-letter:capitalize">
+          {brief}
+        </p>
         <div
-          className={`flex flex-wrap divide-x-1 divide-(--text-muted)/30 mb-1 ${mono.className} gap-1`}>
+          className={`flex flex-wrap divide-x-1 divide-(--text-muted)/30 mb-1 ${mono.className} gap-1 mt-1`}>
           {tech.map((t) => (
             <span
               key={t}
@@ -53,9 +56,6 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
             </span>
           ))}
         </div>
-        <p className="text-sm text-[var(--text-muted)] first-letter:capitalize">
-          {brief}
-        </p>
       </div>
     </div>
   );

@@ -1,15 +1,15 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { Navbar } from "./components/nav";
-import NextTopLoader from "nextjs-toploader";
-import { Geist } from "next/font/google";
+import { Inter } from "next/font/google";
 import { PostHogProvider } from "./components/PostHogProvider";
 import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Border from "./components/border";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
-const sans = Geist({
+const sans = Inter({
   subsets: ["latin"],
 });
 
@@ -68,12 +68,7 @@ export default function RootLayout({
         <TooltipProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
-              <NextTopLoader
-                initialPosition={0.08}
-                crawlSpeed={200}
-                height={2}
-                showSpinner={false}
-              />
+              <ScrollProgress className="h-1" />
               <div className="mx-auto max-w-2xl py-5 border-l border-r border-(--border) border-double-l min-h-screen main">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
@@ -85,7 +80,7 @@ export default function RootLayout({
                 <Border />
                 <footer className="my-3">
                   <div className="flex flex-col items-center justify-center gap-2 text-sm text-(--text-muted)">
-                    tanav poswal
+                    built with ❤️ by Tanav
                   </div>
                 </footer>
                 <Border />
