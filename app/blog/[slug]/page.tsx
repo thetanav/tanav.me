@@ -56,7 +56,7 @@ export async function generateMetadata(props) {
       siteName: "Tanav Poswal",
       images: [
         {
-          url: "/opengraph-image.png",
+          url: "/og.png",
           width: 1200,
           height: 630,
           alt: title,
@@ -70,7 +70,7 @@ export async function generateMetadata(props) {
       card: "summary_large_image",
       title: `${title} • Tanav Poswal`,
       description,
-      images: "/opengraph-image.png",
+      images: "https://tanav.me/og.png",
       creator: "@tanavtwt",
     },
   };

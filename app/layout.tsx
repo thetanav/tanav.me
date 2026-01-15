@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@tanavtwt", // Replace with your Twitter handle
-    creator: "@tanavtwt", // Replace with your Twitter handle
-    images: "/og.png", // Absolute URL to your OG image
+    site: "@tanavtwt",
+    creator: "@tanavtwt",
+    images: ["https://tanav.me/og.png"],
   },
   robots: {
     index: true,
