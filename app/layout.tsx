@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Tanav Poswal",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "Tanav Poswal",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@tanavtwt", // Replace with your Twitter handle
     creator: "@tanavtwt", // Replace with your Twitter handle
-    images: "/opengraph-image", // Absolute URL to your OG image
+    images: "/og.png", // Absolute URL to your OG image
   },
   robots: {
     index: true,
