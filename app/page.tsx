@@ -36,17 +36,20 @@ export default function Page() {
           src="/header.jpg"
           alt="header header"
           width={800}
-          height={800}
+          height={200}
           className="rounded border border-(--border)"
         />
-        <div className="flex items-end gap-4 relative">
-          <Image
-            alt="my pfp"
-            className="squi"
-            width={80}
-            height={80}
-            src="/pfp.png"
-          />
+        <div className="flex items-end gap-3 relative">
+          <div className="p-1 border border-(--border) squi">
+            <Image
+              alt="my pfp"
+              className="squi hover:brightness-95 cursor-pointer select-none"
+              width={110}
+              height={110}
+              src="/pfp.png"
+              draggable={false}
+            />
+          </div>
 
           <div className="absolute top-0 right-0">
             <ViewerNumber />
@@ -78,16 +81,16 @@ export default function Page() {
             href="https://dub.sh/tanav-resume"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/5">
-            <FileTextIcon className="rotate-6 w-4 h-4" />
+            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group">
+            <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12" />
             Resume
           </a>
           <a
             href="https://cal.com/tanavposwal"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-(--accent) text-(--bg) ">
-            <SendIcon className="w-4 h-4" />
+            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-(--accent) text-(--bg) group">
+            <SendIcon className="w-4 h-4 group-hover:-rotate-6" />
             Get a touch
           </a>
         </div>
@@ -130,10 +133,13 @@ export default function Page() {
 
       <Border />
 
-      <section className="flex flex-col gap-8 px-3 sm:px-6">
-        <h2 className="text-lg font-semibold text-(--text)">
-          Some of places I worked
-        </h2>
+      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+        Some of places I worked
+      </h2>
+
+      <Border />
+
+      <section className="flex flex-col px-3 sm:px-6">
         <div className="flex flex-col gap-6">
           {experience.map((job) => (
             <div key={job.company} className="flex gap-3 w-full">
@@ -183,10 +189,13 @@ export default function Page() {
 
       <Border />
 
+      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+        Some of my Projects
+      </h2>
+
+      <Border />
+
       <section className="flex flex-col gap-8 px-3 sm:px-6">
-        <h2 className="text-lg font-semibold text-(--text)">
-          Some of my Projects
-        </h2>
         <div className="flex flex-col gap-6">
           {recentProjects.map((project) => (
             <a
@@ -222,10 +231,13 @@ export default function Page() {
 
       <Border />
 
+      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+        Some of my Opensource Work
+      </h2>
+
+      <Border />
+
       <section className="flex flex-col gap-8 px-3 sm:px-6">
-        <h2 className="text-lg font-semibold text-(--text)">
-          Some of my Opensource Work
-        </h2>
         <div className="flex flex-col gap-6">
           {oss.map((contri) => (
             <a
@@ -246,10 +258,13 @@ export default function Page() {
 
       <Border />
 
+      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+        Some of my Writings
+      </h2>
+
+      <Border />
+
       <section className="flex flex-col gap-8 px-3 sm:px-6">
-        <h2 className="text-lg font-semibold text-(--text)">
-          Some of my Writings
-        </h2>
         <div className="flex flex-col gap-6">
           {recentPosts.map((post) => (
             <Link

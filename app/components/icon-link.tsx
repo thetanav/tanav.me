@@ -26,7 +26,9 @@ export default function IconLink({
           {children}
         </a>
       </TooltipTrigger>
-      <TooltipContent sideOffset={10}>
+      <TooltipContent
+        className="border border-(--border) dark:border-neutral-500"
+        sideOffset={10}>
         <p>{tooltip}</p>
       </TooltipContent>
     </Tooltip>

@@ -173,3 +173,20 @@ article.prose img {
     }
   }
 }
+
+.hr {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--text-muted) 0px,
+    var(--text-muted) 6px,
+    transparent 6px,
+    transparent 14px
+  );
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.dot-grid {
+  background-image: radial-gradient(var(--border) 2px, transparent 1px);
+  background-size: 7.5px 7.5px;
+}

@@ -13,12 +13,12 @@ export default function ViewsLast24() {
   }, []);
 
   return (
-    <div className="flex gap-1 items-center justify-center opacity-40">
+    <div className="flex gap-2 items-center justify-center opacity-40">
       <EyeIcon className="w-4 h-4" />
       {!count || count === undefined ? (
         <Loader className="text(--text-muted) animate-spin w-4" />
       ) : (
-        <span className="text-[var(--text)] text-sm">{count}/24h</span>
+        <span className="text-(--text) text-sm font-semibold">{count}</span>
       )}
     </div>
   );

@@ -69,7 +69,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
               <ScrollProgress className="h-1" />
-              <div className="mx-auto max-w-2xl py-5 border-l border-r border-(--border) border-double-l min-h-screen main">
+              <div className="mx-auto max-w-2xl py-5 border-l border-r border-(--border) border-dotted-r min-h-screen main">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
                   <Navbar />
