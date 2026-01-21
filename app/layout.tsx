@@ -63,20 +63,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <body className={`${sans.className} antialiased`}>
         <TooltipProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
               <ScrollProgress className="h-1" />
-              <div className="mx-auto max-w-2xl py-5 border-l border-r border-(--border) border-dotted-r min-h-screen main">
+              <div className="mx-auto max-w-2xl overflow-- py-5 border-l border-r border-(--border) border-dotted-r min-h-screen main scroll-smooth">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
                   <Navbar />
                   <ThemeToggle />
                 </header>
                 <Border />
-                <main className="my-6 min-h-[77vh]">{children}</main>
+                <main className="my-6">{children}</main>
                 <Border />
                 <footer className="my-3">
                   <div className="flex flex-col items-center justify-center gap-2 text-sm text-(--text-muted)">

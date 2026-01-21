@@ -182,7 +182,7 @@ export default function Page() {
         </div>
         <Link
           href="/experience"
-          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors">
+          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors pt-6">
           View all experience →
         </Link>
       </section>
