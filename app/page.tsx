@@ -37,27 +37,25 @@ export default function Page() {
           alt="header header"
           width={800}
           height={200}
-          className="rounded border border-(--border)"
+          className="rounded-lg border border-(--border)"
         />
         <div className="flex items-end gap-3 relative">
-          <div className="p-1 border border-(--border) squi">
-            <Image
-              alt="my pfp"
-              className="squi hover:brightness-95 cursor-pointer select-none"
-              width={110}
-              height={110}
-              src="/pfp.png"
-              draggable={false}
-            />
-          </div>
+          <Image
+            alt="my pfp"
+            className="ring-4 ring-(--text-muted)/20 rounded-2xl cursor-pointer select-none"
+            width={90}
+            height={90}
+            src="/pfp.png"
+            draggable={false}
+          />
 
           <div className="absolute top-0 right-0">
             <ViewerNumber />
           </div>
 
           <div className="w-full flex items-center justify-between">
-            <h1 className={`text-3xl font-semibold text-[var(--text-muted)]`}>
-              Hi! I am <span className="text-[var(--text)]">Tanav</span>
+            <h1 className={`text-3xl font-semibold text-(--text-muted)`}>
+              Hi! I am <span className="text-(--text)">Tanav</span>
             </h1>
             <div className="gap-2 items-center hidden sm:flex">
               <TypeScript className="w-5 h-5" />
@@ -81,7 +79,7 @@ export default function Page() {
             href="https://dub.sh/tanav-resume"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group">
+            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold">
             <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12" />
             Resume
           </a>
@@ -89,7 +87,7 @@ export default function Page() {
             href="https://cal.com/tanavposwal"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-(--accent) text-(--bg) group">
+            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-(--accent) text-(--bg) group font-semibold">
             <SendIcon className="w-4 h-4 group-hover:-rotate-6" />
             Get a touch
           </a>

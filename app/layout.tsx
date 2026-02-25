@@ -1,7 +1,7 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { Navbar } from "./components/nav";
-import { Inter } from "next/font/google";
+import { DM_Sans, Geist, Inter } from "next/font/google";
 import { PostHogProvider } from "./components/PostHogProvider";
 import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
@@ -9,7 +9,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Border from "./components/border";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 
-const sans = Inter({
+const sans = DM_Sans({
   subsets: ["latin"],
 });
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tanav.me"),
   title: {
     default: "Tanav",
-    template: "%s • Tanav",
+    template: "%s",
   },
   description: "Developer, problem solver and creator.",
   openGraph: {
@@ -69,7 +69,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
               <ScrollProgress className="h-1" />
-              <div className="mx-auto max-w-2xl overflow-- py-5 border-l border-r border-(--border) border-dotted-r min-h-screen main scroll-smooth">
+              <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
                   <Navbar />

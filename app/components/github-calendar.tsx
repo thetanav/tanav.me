@@ -55,6 +55,10 @@ export default function GithubCalendarClient({
         blockRadius={0}
         username={username}
         colorScheme={theme === "dark" ? "dark" : "light"}
+        theme={{
+          light: ['#e5e5e5', '#a3a3a3', '#737373', '#525252', '#111111'],
+          dark: ['#262626', '#52525b', '#71717a', '#a1a1aa', '#ededed'],
+        }}
         blockSize={blockSize}
       />
     </div>

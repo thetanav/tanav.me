@@ -1,5 +1,8 @@
 export default function Border() {
   return (
-    <div className="border-t border-b border-(--border) h-1 w-full relative left-1/2 -translate-x-1/2" />
+    <div className="w-full relative left-1/2 -translate-x-1/2 flex flex-col gap-[2px]">
+      <div className="border-t border-(--border) w-full" />
+      <div className="border-t border-(--border) w-full" />
+    </div>
   );
 }

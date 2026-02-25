@@ -148,9 +148,9 @@ article.prose img {
   margin-bottom: 1.5em;
 }
 
-.squi {
-  corner-shape: squircle;
-  border-radius: 30%;
+.app-border {
+  border-right: 1px dashed var(--border);
+  border-left: 1px dashed var(--border);
 }
 
 @theme inline {
