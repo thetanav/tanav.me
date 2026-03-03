@@ -3,16 +3,22 @@
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useWebHaptics } from "web-haptics/react";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { trigger, isSupported, cancel } = useWebHaptics();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    cancel();
+  }, []);
 
   const current = resolvedTheme || theme || "light";
 
   const toggleTheme = () => {
+    trigger([{ duration: 35 }], { intensity: 1 });
     setTheme(current === "light" ? "dark" : "light");
   };
 

@@ -34,7 +34,8 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^4.1.18",
     "tw-squircle": "^1.4.0",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "web-haptics": "^0.0.6"
   },
   "devDependencies": {
     "@types/node": "20.11.17",
