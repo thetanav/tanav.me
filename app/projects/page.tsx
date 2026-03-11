@@ -47,11 +47,13 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
           {brief}
         </p>
         <div
-          className={`flex flex-wrap divide-x-1 divide-(--text-muted)/30 mb-1 ${mono.className} gap-1 mt-1`}>
+          className={`flex flex-wrap divide-x-1 divide-(--text-muted)/30 mb-1 ${mono.className} gap-1 mt-1`}
+        >
           {tech.map((t) => (
             <span
               key={t}
-              className="transition text-xs text-(--text-muted) pr-1">
+              className="transition text-xs text-(--text-muted) pr-1"
+            >
               {t}
             </span>
           ))}
