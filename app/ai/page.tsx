@@ -1,11 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { Streamdown } from "streamdown";
 import { Loader2 } from "lucide-react";
-import { useHotkey } from "@tanstack/react-hotkeys";
 
 export default function AIPage() {
   const [input, setInput] = useState("");
@@ -31,8 +30,8 @@ export default function AIPage() {
   };
 
   return (
-    <section className="h-[76vh]">
-      <div className="h-[70vh] overflow-y-auto no-scrollbar p-4 sm:p-5 py-0 flex flex-col gap-4">
+    <section className="h-full -my-6 relative">
+      <div className="h-[70vh] overflow-y-scroll no-scrollbar p-4 sm:p-5 py-0 flex flex-col gap-4 py-2">
         {messages.length === 0 && (
           <div className="text-sm text-(--text-muted)">
             Try:{" "}
@@ -81,7 +80,7 @@ export default function AIPage() {
         ))}
       </div>
 
-      <form onSubmit={submit} className="border-y border-(--border) p-3">
+      <form onSubmit={submit} className="w-full border-y border-(--border) p-3">
         <div className="flex items-end gap-2">
           <textarea
             value={input}

@@ -7,7 +7,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Border from "./components/border";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
+import NextTopLoader from "nextjs-toploader";
 
 const sans = DM_Sans({
   subsets: ["latin"],
@@ -65,10 +65,10 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body className={`${sans.className} antialiased`}>
+        <NextTopLoader />
         <TooltipProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
-              <ScrollProgress color={"#eee"} className="h-1" />
               <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">

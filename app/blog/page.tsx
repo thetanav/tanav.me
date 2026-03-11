@@ -19,7 +19,7 @@ const formatDate = (date: Date) =>
   });
 
 export default async function Page() {
-  const posts = await getPostMetadata("posts");
+  const posts = getPostMetadata("posts");
 
   return (
     <section className="flex flex-col gap-8">
@@ -31,7 +31,8 @@ export default async function Page() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group flex flex-col gap-2">
+            className="group flex flex-col gap-2"
+          >
             <div className="flex items-baseline justify-between">
               <div className="flex gap-6 items-center">
                 <h3 className="font-medium text-[var(--text)] group-hover:opacity-70 transition-opacity">

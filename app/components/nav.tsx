@@ -1,44 +1,90 @@
 "use client";
 
-import { ChevronLeft } from "lucide-react";
+import {
+  BrainCircuit,
+  BrainCircuitIcon,
+  ChevronLeft,
+  Ghost,
+  GhostIcon,
+  Home,
+  HomeIcon,
+  Notebook,
+  NotebookIcon,
+  Presentation,
+  PresentationIcon,
+} from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import { useHotkey } from "@tanstack/react-hotkeys";
 
 const navItems = {
   "/": {
     name: "Home",
+    icon: <Home />,
+    short: "h",
   },
   "/blog": {
     name: "Blogs",
+    icon: <Notebook />,
+    short: "b",
   },
   "/projects": {
     name: "Projects",
+    icon: <Presentation />,
+    short: "p",
   },
   "/experience": {
     name: "Experience",
+    icon: <Ghost />,
+    short: "e",
   },
   "/ai": {
     name: "AI",
+    icon: <BrainCircuit />,
+    short: "a",
   },
 };
 
 export function Navbar() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const router = useRouter();
+
+  useHotkey("A", () => router.push("/ai"));
+  useHotkey("P", () => router.push("/projects"));
+  useHotkey("E", () => router.push("/experience"));
+  useHotkey("B", () => router.push("/blog"));
+  useHotkey("H", () => router.push("/home"));
 
   return (
-    <nav className="flex items-center gap-4 text-xs sm:text-sm font-medium overflow-hidden">
-      {Object.entries(navItems).map(([path, { name }], index) => {
+    <nav className="flex items-center justify-center gap-4 text-xs sm:text-sm font-medium overflow-hiddens ml-2">
+      {Object.entries(navItems).map(([path, { name, icon, short }], index) => {
         return (
-          <div key={path}>
-            <Link
-              href={path}
-              className="transition-colors text-[var(--text-muted)] hover:text-[var(--text)]"
-            >
-              {name}
-            </Link>
-          </div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link key={path} href={path}>
+                <div
+                  className={`group transition-colors text-muted-foreground hover:text-primary flex gap-1 items-center justify-center duration-300 size-4 ${pathname == path && "text-primary"}`}
+                >
+                  {icon}
+                </div>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                {name}{" "}
+                <KbdGroup>
+                  <Kbd>{short.toUpperCase()}</Kbd>
+                </KbdGroup>
+              </p>
+            </TooltipContent>
+          </Tooltip>
         );
       })}
       <Shimmer text={"Open to work"} />
