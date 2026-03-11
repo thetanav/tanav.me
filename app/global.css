@@ -47,7 +47,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-[data-theme="dark"] {
+/*[data-theme="dark"] {
   --bg: #0a0a0a;
   --text: #ededed;
   --text-muted: #a1a1aa;
@@ -55,7 +55,7 @@
   --accent: #a1a1aa;
   --accent-soft: #171717;
   --star-color: #ededed;
-}
+}*/
 
 /* Support class-based theming for Tailwind's `dark:` utilities */
 .dark {
@@ -271,7 +271,7 @@ article.prose img {
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6)
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 .hr {

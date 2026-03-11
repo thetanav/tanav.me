@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import Image from "next/image";
 
 export default function ImagePop() {
@@ -7,7 +13,7 @@ export default function ImagePop() {
       <DialogTrigger asChild>
         <Image
           alt="my pfp"
-          className="ring-4 ring-(--text-muted)/20 rounded-2xl cursor-pointer select-none"
+          className="ring-4 ring-(--text-muted)/20 rounded-xl cursor-pointer select-none active:translate-y-0.5"
           width={90}
           height={90}
           src="/pfp.png"
@@ -15,12 +21,16 @@ export default function ImagePop() {
         />
       </DialogTrigger>
       <DialogContent className="sm:max-w-sm">
+        <DialogHeader>
+          <DialogTitle>My face</DialogTitle>
+        </DialogHeader>
         <Image
           alt="my pfp"
-          className="rounded-2xl select-none"
-          width={300}
-          height={300}
+          className="rounded-xl select-none"
+          width={500}
+          height={500}
           src="/pfp.png"
+          quality={100}
           draggable={false}
         />
       </DialogContent>

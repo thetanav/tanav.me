@@ -8,6 +8,7 @@ import { ThemeToggle } from "./components/theme-toggle";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Border from "./components/border";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import Oneko from "./components/cat";
 
 const sans = DM_Sans({
   subsets: ["latin"],
@@ -68,7 +69,7 @@ export default function RootLayout({
         <TooltipProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
-              <ScrollProgress className="h-1" />
+              <ScrollProgress color={"#eee"} className="h-1" />
               <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
@@ -77,13 +78,6 @@ export default function RootLayout({
                 </header>
                 <Border />
                 <main className="my-6">{children}</main>
-                <Border />
-                <footer className="my-3">
-                  <div className="flex flex-col items-center justify-center gap-2 text-sm text-(--text-muted)">
-                    built with ❤️ by Tanav
-                  </div>
-                </footer>
-                <Border />
               </div>
             </PostHogProvider>
           </ThemeProvider>

@@ -12,9 +12,9 @@ import {
 } from "lucide-react";
 import GithubCalendarClient from "./components/github-calendar";
 import Image from "next/image";
-import { CPlusPlus, Go, Python, TypeScript } from "developer-icons";
+import { CPlusPlus, Go, Python, RustDark, TypeScript } from "developer-icons";
 import ViewerNumber from "./components/viewer";
-import { SiLeetcode, SiMedium } from "react-icons/si";
+import { SiLeetcode, SiMedium, SiRust } from "react-icons/si";
 import Link from "next/link";
 import IconLink from "./components/icon-link";
 import {
@@ -44,20 +44,16 @@ export default function Page() {
         <div className="flex items-end gap-3 relative">
           <ImagePop />
 
-          <div className="absolute top-0 right-0">
-            <ViewerNumber />I
-          </div>
+          <div className="absolute top-0 right-0">{/*<ViewerNumber />*/}</div>
 
           <div className="w-full flex items-center justify-between">
             <HomeText />
-            {/*<h1 className={`text-3xl font-semibold text-(--text-muted)`}>
-              Hi! I am <span className="text-(--text)">Tanav</span>
-            </h1>*/}
             <div className="gap-2 items-center hidden sm:flex">
               <TypeScript className="w-5 h-5" />
               <Go className="w-7 h-7" />
               <Python className="w-5 h-5" />
               <CPlusPlus className="w-5 h-5" />
+              <SiRust className="w-5 h-5" />
             </div>
           </div>
         </div>
@@ -84,7 +80,7 @@ export default function Page() {
             href="https://cal.com/tanavposwal"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-(--accent) text-(--bg) group font-semibold"
+            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
           >
             <SendIcon className="w-4 h-4 group-hover:-rotate-6" />
             Get a touch
@@ -214,7 +210,7 @@ export default function Page() {
                 />
               </div>
               <div className="flex flex-col">
-                <h3 className="text-(--text) transition-opacity capitalize text-sm mb-1">
+                <h3 className="text-(--text) transition-opacity capitalize text-sm font-semibold">
                   {project.name}
                 </h3>
                 <p className="text-sm text-(--text-muted)">{project.brief}</p>

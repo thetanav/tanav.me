@@ -13,6 +13,7 @@
     "@tabler/icons-react": "^3.36.1",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
+    "@tanstack/react-hotkeys": "^0.4.1",
     "@upstash/redis": "^1.36.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
