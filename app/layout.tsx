@@ -8,7 +8,6 @@ import { ThemeToggle } from "./components/theme-toggle";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Border from "./components/border";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
-import Oneko from "./components/cat";
 
 const sans = DM_Sans({
   subsets: ["latin"],

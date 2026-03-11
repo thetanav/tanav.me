@@ -18,6 +18,9 @@ const navItems = {
   "/experience": {
     name: "Experience",
   },
+  "/ai": {
+    name: "AI",
+  },
 };
 
 export function Navbar() {
@@ -31,30 +34,38 @@ export function Navbar() {
           <div key={path}>
             <Link
               href={path}
-              className="transition-colors text-[var(--text-muted)] hover:text-[var(--text)]">
+              className="transition-colors text-[var(--text-muted)] hover:text-[var(--text)]"
+            >
               {name}
             </Link>
           </div>
         );
       })}
-      <Shimmer />
+      <Shimmer text={"Open to work"} />
     </nav>
   );
 }
 
-export default function Shimmer() {
+export default function Shimmer({
+  text,
+  className = "",
+}: {
+  text: string;
+  className?: string;
+}) {
   return (
-    <div className={`inline-block select-none`}>
+    <div className={`inline-block select-none ${className}`}>
       <div className="relative overflow-hidden">
         {/* Base text */}
-        <span className="text-(--text)/40">Open to work</span>
+        <span className="text-(--text)/40">{text}</span>
 
         {/* Shimmering overlay */}
         <div
           className="absolute bg-clip-text text-transparent bg-gradient-to-r from-transparent via-(--text) to-transparent z-10 top-0 left-0 right-0 [background-size:50%_100%] [background-repeat:no-repeat]"
           style={{
             animation: "wave 2s linear infinite",
-          }}>
+          }}
+        >
           <style jsx>{`
             @keyframes wave {
               0% {
@@ -65,7 +76,7 @@ export default function Shimmer() {
               }
             }
           `}</style>
-          Open to work
+          {text}
         </div>
       </div>
     </div>
