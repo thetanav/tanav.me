@@ -44,7 +44,9 @@ export default function Page() {
         <div className="flex items-end gap-3 relative">
           <ImagePop />
 
-          <div className="absolute top-0 right-0">{/*<ViewerNumber />*/}</div>
+          <div className="absolute top-0 right-0">
+            <ViewerNumber />
+          </div>
 
           <div className="w-full flex items-center justify-between">
             <HomeText />

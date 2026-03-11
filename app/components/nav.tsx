@@ -45,18 +45,18 @@ const navItems = {
     icon: <Ghost />,
     short: "e",
   },
-  "/ai": {
-    name: "AI",
-    icon: <BrainCircuit />,
-    short: "a",
-  },
+  // "/ai": {
+  //   name: "AI",
+  //   icon: <BrainCircuit />,
+  //   short: "a",
+  // },
 };
 
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  useHotkey("A", () => router.push("/ai"));
+  // useHotkey("A", () => router.push("/ai"));
   useHotkey("P", () => router.push("/projects"));
   useHotkey("E", () => router.push("/experience"));
   useHotkey("B", () => router.push("/blog"));

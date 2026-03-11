@@ -62,7 +62,7 @@ export default function AIPage() {
                       className="text-muted-foreground text-xs font-mono"
                       key={`${partIndex}-bash`}
                     >
-                      Bash: {part.input?.command ?? ""}
+                      Bash: {(part.input as { command?: string })?.command ?? ""}
                     </div>
                   );
                 case "tool-readFile":
@@ -71,7 +71,7 @@ export default function AIPage() {
                       className="text-muted-foreground text-xs font-mono"
                       key={`${partIndex}-read`}
                     >
-                      Read: {part.input?.path ?? ""}
+                      Read: {(part.input as { path?: string })?.path ?? ""}
                     </div>
                   );
               }
@@ -80,7 +80,7 @@ export default function AIPage() {
         ))}
       </div>
 
-      <form onSubmit={submit} className="w-full border-y border-(--border) p-3">
+      <form onSubmit={submit} className="w-full border-y border-(--border) p-5">
         <div className="flex items-end gap-2">
           <textarea
             value={input}

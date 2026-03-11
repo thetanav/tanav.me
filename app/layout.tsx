@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     default: "Tanav",
     template: "%s",
   },
-  description: "Developer, problem solver and creator.",
+  description:
+    "Tanav Poswal is a Fullstack developer from India with preficiency in Web and AI.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,7 +66,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body className={`${sans.className} antialiased`}>
-        <NextTopLoader />
+        <NextTopLoader showSpinner={false} />
         <TooltipProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
