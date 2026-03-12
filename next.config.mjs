@@ -1,5 +1,6 @@
 const nextConfig = {
   reactStrictMode: true,
+  serverExternalPackages: ["bash-tool", "just-bash"],
   async rewrites() {
     return [
       {

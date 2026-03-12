@@ -60,20 +60,23 @@ export function Navbar() {
   useHotkey("P", () => router.push("/projects"));
   useHotkey("E", () => router.push("/experience"));
   useHotkey("B", () => router.push("/blog"));
-  useHotkey("H", () => router.push("/home"));
+  useHotkey("H", () => router.push("/"));
 
   return (
     <nav className="flex items-center justify-center gap-4 text-xs sm:text-sm font-medium overflow-hiddens ml-2">
       {Object.entries(navItems).map(([path, { name, icon, short }], index) => {
         return (
-          <Tooltip>
+          <Tooltip key={path}>
             <TooltipTrigger asChild>
-              <Link key={path} href={path}>
-                <div
+              <Link href={path}>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   className={`group transition-colors text-muted-foreground hover:text-primary flex gap-1 items-center justify-center duration-300 size-4 ${pathname == path && "text-primary"}`}
                 >
                   {icon}
-                </div>
+                </motion.div>
               </Link>
             </TooltipTrigger>
             <TooltipContent>

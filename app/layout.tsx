@@ -65,12 +65,12 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
-      <body className={`${sans.className} antialiased`}>
+      <body className={`${sans.className} antialiased grainy-bg`}>
         <NextTopLoader showSpinner={false} />
         <TooltipProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <PostHogProvider>
-              <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth">
+              <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth bg-background">
                 <Border />
                 <header className="px-3 sm:px-6 flex items-center justify-between py-3">
                   <Navbar />
@@ -78,6 +78,7 @@ export default function RootLayout({
                 </header>
                 <Border />
                 <main className="my-6">{children}</main>
+                <Border />
               </div>
             </PostHogProvider>
           </ThemeProvider>

@@ -23,12 +23,13 @@ export default function ExperiencePage() {
               className="w-10 h-10 rounded-md border border-[var(--border)]"
               src={job.img}
             />
-            <div key={job.company} className="flex flex-2 flex-col gap-2">
+            <div className="flex flex-2 flex-col gap-2">
               <div className="flex justify-between items-baseline">
                 <div>
                   <a
                     href={job.url}
-                    className="font-bold text-[var(--text)] hover:underline">
+                    className="font-bold text-[var(--text)] hover:underline"
+                  >
                     {job.company}
                   </a>
                   <p className="text-sm text-[var(--text-muted)]">{job.role}</p>
