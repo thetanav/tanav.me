@@ -8,7 +8,7 @@ const serif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Blogs",
-  description: "Blogs by Tanav Poswal",
+  description: "Blogs from Tanav Poswal",
 };
 
 const formatDate = (date: Date) =>

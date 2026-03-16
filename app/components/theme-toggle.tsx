@@ -45,20 +45,26 @@ export function ThemeToggle() {
             {mounted && current === "light" ? (
               <motion.div
                 key="moon"
-                initial={{ filter: "blur(1px)", opacity: 0.5, rotate: 45 }}
-                animate={{ filter: "blur(0px)", opacity: 1, rotate: 0 }}
-                exit={{ filter: "blur(1px)", opacity: 0.5, rotate: -45 }}
-                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, rotate: 30 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: -30 }}
+                transition={{
+                  opacity: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
+                  rotate: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
+                }}
               >
                 <MoonIcon className="w-4 h-4" />
               </motion.div>
             ) : (
               <motion.div
                 key="sun"
-                initial={{ filter: "blur(1px)", opacity: 0.5, rotate: 45 }}
-                animate={{ filter: "blur(0px)", opacity: 1, rotate: 0 }}
-                exit={{ filter: "blur(1px)", opacity: 0.5, rotate: -45 }}
-                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, rotate: 30 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: -30 }}
+                transition={{
+                  opacity: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
+                  rotate: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
+                }}
               >
                 <SunIcon className="w-4 h-4" />
               </motion.div>

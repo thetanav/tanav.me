@@ -3,7 +3,6 @@ import fs from "fs";
 import matter from "gray-matter";
 import getPostMetadata from "lib/posts";
 import CodeBlock from "app/components/codeblock";
-import { Instrument_Serif, Inter } from "next/font/google";
 import ImgBlock from "app/components/imgblock";
 
 function getReadingTime(content: string): string {
@@ -12,9 +11,6 @@ function getReadingTime(content: string): string {
   const minutes = Math.ceil(words / wordsPerMinute);
   return `${minutes} min read`;
 }
-
-const serif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
-const bodySerif = Inter({ weight: "400", subsets: ["latin"] });
 
 const formatDate = (value: string) =>
   new Date(value).toLocaleDateString("en-US", {
@@ -56,7 +52,7 @@ export async function generateMetadata(props) {
       siteName: "Tanav Poswal",
       images: [
         {
-          url: "/og.png",
+          url: "/opengraph-image",
           width: 1200,
           height: 630,
           alt: title,
@@ -82,10 +78,9 @@ export default async function Page(props) {
   const readingTime = getReadingTime(post.content);
 
   return (
-    <section className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <h1
-          className={`text-4xl font-bold text-[var(--text)] ${serif.className}`}>
+    <section className="flex flex-col">
+      <header className="flex flex-col gap-3 my-3">
+        <h1 className="text-4xl font-bold text-[var(--text)]">
           {post.data.title}
         </h1>
         <div className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
@@ -106,7 +101,8 @@ export default async function Page(props) {
                 component: ImgBlock,
               },
             },
-          }}>
+          }}
+        >
           {post.content}
         </Markdown>
       </article>

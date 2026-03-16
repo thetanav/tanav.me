@@ -27,22 +27,22 @@ import { useHotkey } from "@tanstack/react-hotkeys";
 const navItems = {
   "/": {
     name: "Home",
-    icon: <Home />,
+    icon: <Home className="size-4" />,
     short: "h",
   },
   "/blog": {
     name: "Blogs",
-    icon: <Notebook />,
+    icon: <Notebook className="size-4" />,
     short: "b",
   },
   "/projects": {
     name: "Projects",
-    icon: <Presentation />,
+    icon: <Presentation className="size-4" />,
     short: "p",
   },
   "/experience": {
     name: "Experience",
-    icon: <Ghost />,
+    icon: <Ghost className="size-4" />,
     short: "e",
   },
   // "/ai": {
@@ -68,15 +68,12 @@ export function Navbar() {
         return (
           <Tooltip key={path}>
             <TooltipTrigger asChild>
-              <Link href={path}>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className={`group transition-colors text-muted-foreground hover:text-primary flex gap-1 items-center justify-center duration-300 size-4 ${pathname == path && "text-primary"}`}
-                >
-                  {icon}
-                </motion.div>
+              <Link
+                href={path}
+                className={`flex items-center group transition-colors text-muted-foreground hover:text-primary gap-1 justify-center duration-300 [&svg]:size-4 ${pathname == path && "text-primary"}`}
+              >
+                {icon}
+                <div className="hidden sm:block">{name}</div>
               </Link>
             </TooltipTrigger>
             <TooltipContent>

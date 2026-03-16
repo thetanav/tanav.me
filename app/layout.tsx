@@ -68,7 +68,12 @@ export default function RootLayout({
       <body className={`${sans.className} antialiased grainy-bg`}>
         <NextTopLoader showSpinner={false} />
         <TooltipProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange={false}
+          >
             <PostHogProvider>
               <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth bg-background">
                 <Border />

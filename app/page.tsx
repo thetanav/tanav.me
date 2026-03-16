@@ -68,23 +68,23 @@ export default function Page() {
           real-world impact while helping others grow.
         </p>
 
-        <div className="flex gap-2 text-sm">
+        <div className="flex gap-2 text-sm p-1/2">
           <a
             href="https://dub.sh/tanav-resume"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold"
+            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold"
           >
-            <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12" />
+            <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
             Resume
           </a>
           <a
             href="https://cal.com/tanavposwal"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-(--border) rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
+            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
           >
-            <SendIcon className="w-4 h-4 group-hover:-rotate-6" />
+            <SendIcon className="w-4 h-4 group-hover:-rotate-6 transition-transform duration-200" />
             Get a touch
           </a>
         </div>
@@ -169,9 +169,6 @@ export default function Page() {
                     </span>
                   </div>
                 </div>
-                <p className="text-sm text-[var(--text-muted)]">
-                  {job.description}
-                </p>
               </div>
             </div>
           ))}

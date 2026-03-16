@@ -1,15 +1,9 @@
 import { ImageResponse } from "next/og";
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
 
-export const size = {
-  width: 1200,
-  height: 630,
-};
-
 export const runtime = "nodejs";
-
-export const contentType = "image/png";
 
 type ImageProps = {
   params: Promise<{
@@ -47,6 +41,9 @@ function formatPostDate(date?: string) {
 
 export default async function Image({ params }: ImageProps) {
   const { slug } = await params;
+  const fontData = fs.readFileSync(
+    path.join(process.cwd(), "assets/Geist-Bold.ttf"),
+  );
   const post = getPost(slug);
 
   const title = post?.title ?? "Untitled Post";
@@ -59,47 +56,83 @@ export default async function Image({ params }: ImageProps) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        background: "#000",
-        color: "#f8fafc",
-        padding: "64px",
-        fontFamily:
-          "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        background: "#0a0a0a",
+        color: "#fff",
+        padding: "100px",
+        gap: "4rem",
+        fontFamily: "Geist",
       }}
     >
-      <div style={{ display: "flex", fontSize: 28, opacity: 0.8 }}>
-        tanav.me/blog
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "19px",
+          fontSize: 32,
+          color: "#888",
+          marginBottom: "40px",
+        }}
+      >
+        <img
+          src="https://tanav.me/pfp.png"
+          width={56}
+          height={56}
+          style={{
+            borderRadius: "50%",
+            filter: "grayscale",
+            border: "solid 1px gray",
+          }}
+        />
+        <span>tanav.me</span>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-        <div
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+        }}
+      >
+        <h1
           style={{
             display: "flex",
-            fontSize: 38,
-            lineHeight: 1.1,
-            fontWeight: 800,
-            letterSpacing: "-0.02em",
-            maxWidth: "100%",
+            fontSize: 71,
+            lineHeight: 1,
+            fontWeight: 700,
+            width: "100%",
+            lineClamp: 2,
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
           }}
         >
           {title}
-        </div>
+          DP is easy
+        </h1>
         {formattedDate ? (
           <div
             style={{
               display: "flex",
-              fontSize: 30,
-              color: "#cbd5e1",
-              fontWeight: 500,
+              fontSize: 28,
+              color: "#666",
+              fontWeight: 400,
             }}
           >
             {formattedDate}
+            September 25, 2025
           </div>
         ) : null}
       </div>
     </div>,
     {
-      ...size,
+      fonts: [
+        {
+          name: "Geist",
+          data: fontData,
+        },
+      ],
     },
   );
 }
