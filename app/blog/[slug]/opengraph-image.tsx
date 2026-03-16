@@ -109,7 +109,6 @@ export default async function Image({ params }: ImageProps) {
           }}
         >
           {title}
-          DP is easy
         </h1>
         {formattedDate ? (
           <div
@@ -121,7 +120,6 @@ export default async function Image({ params }: ImageProps) {
             }}
           >
             {formattedDate}
-            September 25, 2025
           </div>
         ) : null}
       </div>
