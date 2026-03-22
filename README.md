@@ -19,6 +19,13 @@ bun dev
 
 Create a `.env.local` file similar to [`.env.example`](https://github.com/leerob/leerob.io/blob/main/.env.example).
 
+For the Spotify now-playing card, also add:
+
+```bash
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REFRESH_TOKEN=
+```
 
 ## License
 

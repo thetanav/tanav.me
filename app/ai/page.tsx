@@ -31,7 +31,7 @@ export default function AIPage() {
 
   return (
     <section className="h-full -my-6 relative">
-      <div className="h-[70vh] overflow-y-scroll no-scrollbar p-4 sm:p-5 py-0 flex flex-col gap-4 py-2">
+      <div className="h-[75vh] overflow-y-scroll no-scrollbar p-4 sm:p-5 py-0 flex flex-col gap-4 py-2">
         {messages.length === 0 && (
           <div className="text-sm text-(--text-muted)">
             Try:{" "}
@@ -62,7 +62,8 @@ export default function AIPage() {
                       className="text-muted-foreground text-xs font-mono"
                       key={`${partIndex}-bash`}
                     >
-                      Bash: {(part.input as { command?: string })?.command ?? ""}
+                      Bash:{" "}
+                      {(part.input as { command?: string })?.command ?? ""}
                     </div>
                   );
                 case "tool-readFile":
@@ -80,7 +81,7 @@ export default function AIPage() {
         ))}
       </div>
 
-      <form onSubmit={submit} className="w-full border-y border-(--border) p-5">
+      <form onSubmit={submit} className="w-full border-t border-(--border) p-5">
         <div className="flex items-end gap-2">
           <textarea
             value={input}

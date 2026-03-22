@@ -26,6 +26,7 @@ import Border from "./components/border";
 import { TechMarquee } from "./components/techmarquee";
 import HomeText from "./components/home-text";
 import ImagePop from "./components/image-pop";
+import SpotifyNowPlaying from "./components/spotify-now-playing";
 
 export default function Page() {
   const recentProjects = projects.slice(0, 3);
@@ -73,8 +74,7 @@ export default function Page() {
             href="https://dub.sh/tanav-resume"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold"
-          >
+            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold">
             <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
             Resume
           </a>
@@ -82,8 +82,7 @@ export default function Page() {
             href="https://cal.com/tanavposwal"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
-          >
+            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold">
             <SendIcon className="w-4 h-4 group-hover:-rotate-6 transition-transform duration-200" />
             Get a touch
           </a>
@@ -98,8 +97,7 @@ export default function Page() {
           </IconLink>
           <IconLink
             link="https://linkedin.com/in/tanav-poswal"
-            tooltip="Linkedin"
-          >
+            tooltip="Linkedin">
             <IconBrandLinkedin className="w-5 h-5" />
           </IconLink>
           <IconLink link="https://medium.com/@tanavposwal" tooltip="Medium">
@@ -112,6 +110,8 @@ export default function Page() {
             <MailIcon className="w-5 h-5" />
           </IconLink>
         </div>
+
+        <SpotifyNowPlaying />
       </section>
 
       <Border />
@@ -152,8 +152,7 @@ export default function Page() {
                       href={job.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold text-[var(--text)] hover:underline"
-                    >
+                      className="font-bold text-[var(--text)] hover:underline">
                       {job.company}
                     </a>
                     <p className="text-sm text-[var(--text-muted)]">
@@ -175,8 +174,7 @@ export default function Page() {
         </div>
         <Link
           href="/experience"
-          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors pt-6"
-        >
+          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors pt-6">
           View all experience →
         </Link>
       </section>
@@ -197,8 +195,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               key={project.name}
-              className="group flex items-center gap-4 cursor-pointer"
-            >
+              className="group flex items-center gap-4 cursor-pointer">
               <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-(--border) bg-(--surface)">
                 <Image
                   width={100}
@@ -219,8 +216,7 @@ export default function Page() {
         </div>
         <Link
           href="/projects"
-          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors"
-        >
+          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors">
           View all projects →
         </Link>
       </section>
@@ -241,8 +237,7 @@ export default function Page() {
               href={contri.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 group-hover:opacity-70 transition-opacity"
-            >
+              className="group flex items-center gap-4 group-hover:opacity-70 transition-opacity">
               <GitPullRequestArrowIcon className="h-4 w-4" />
               <h3 className="text-(--text) group-hover:opacity-70 text-sm transition-opacity">
                 {contri.name}
@@ -267,8 +262,7 @@ export default function Page() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col gap-2"
-            >
+              className="group flex flex-col gap-2">
               <div className="flex items-baseline justify-between">
                 <h3 className="text-sm text-(--text) group-hover:opacity-70 transition-opacity">
                   {post.title}
@@ -285,8 +279,7 @@ export default function Page() {
         </div>
         <Link
           href="/blog"
-          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors"
-        >
+          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors">
           Read more →
         </Link>
       </section>

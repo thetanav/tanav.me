@@ -1,7 +1,7 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { Navbar } from "./components/nav";
-import { DM_Sans, Geist, Inter } from "next/font/google";
+import { DM_Sans, Geist, Inter, JetBrains_Mono } from "next/font/google";
 import { PostHogProvider } from "./components/PostHogProvider";
 import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";

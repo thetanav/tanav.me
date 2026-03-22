@@ -72,7 +72,7 @@ export function Navbar() {
                 href={path}
                 className={`flex items-center group transition-colors text-muted-foreground hover:text-primary gap-1 justify-center duration-300 [&svg]:size-4 ${pathname == path && "text-primary"}`}
               >
-                {icon}
+                <div className="sm:hidden block">{icon}</div>
                 <div className="hidden sm:block">{name}</div>
               </Link>
             </TooltipTrigger>
