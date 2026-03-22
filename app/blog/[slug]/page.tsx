@@ -90,7 +90,7 @@ export default async function Page(props) {
         </div>
       </header>
 
-      <article className="prose">
+      <article className="prose dark:prose-invert space-y-0">
         <Markdown
           options={{
             overrides: {
@@ -101,8 +101,7 @@ export default async function Page(props) {
                 component: ImgBlock,
               },
             },
-          }}
-        >
+          }}>
           {post.content}
         </Markdown>
       </article>
