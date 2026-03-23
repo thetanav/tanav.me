@@ -26,7 +26,6 @@ import Border from "./components/border";
 import { TechMarquee } from "./components/techmarquee";
 import HomeText from "./components/home-text";
 import ImagePop from "./components/image-pop";
-import SpotifyNowPlaying from "./components/spotify-now-playing";
 
 export default function Page() {
   const recentProjects = projects.slice(0, 3);
@@ -100,9 +99,6 @@ export default function Page() {
             tooltip="Linkedin">
             <IconBrandLinkedin className="w-5 h-5" />
           </IconLink>
-          <IconLink link="https://medium.com/@tanavposwal" tooltip="Medium">
-            <IconBrandMedium className="w-6 h-6" />
-          </IconLink>
           <IconLink link="https://leetcode.com/tanavcodes" tooltip="Leetcode">
             <SiLeetcode className="w-5 h-5" />
           </IconLink>
@@ -110,8 +106,6 @@ export default function Page() {
             <MailIcon className="w-5 h-5" />
           </IconLink>
         </div>
-
-        <SpotifyNowPlaying />
       </section>
 
       <Border />
@@ -122,9 +116,7 @@ export default function Page() {
 
       <Border />
 
-      <section className="flex flex-col gap-6 px-3 sm:px-6">
-        <GithubCalendarClient username="thetanav" blockSize={8} />
-      </section>
+      <GithubCalendarClient username="thetanav" blockSize={7} />
 
       <Border />
 

@@ -72,18 +72,19 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange={false}
-          >
+            disableTransitionOnChange={false}>
             <PostHogProvider>
-              <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth bg-background">
-                <Border />
-                <header className="px-3 sm:px-6 flex items-center justify-between py-3">
+              <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen app-border scroll-smooth bg-background relative px-6">
+                <header className="px-3 sm:px-6 flex items-center justify-between py-3 pt-0">
                   <Navbar />
                   <ThemeToggle />
                 </header>
                 <Border />
                 <main className="my-6">{children}</main>
                 <Border />
+
+                <div className="absolute h-full w-6 bottom-0 top-0 -right-px border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5" />
+                <div className="absolute h-full w-6 top-0 bottom-0 -left-px border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5" />
               </div>
             </PostHogProvider>
           </ThemeProvider>

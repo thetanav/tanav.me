@@ -46,18 +46,18 @@ export default function GithubCalendarClient({
   }, []);
 
   return (
-    <div className="relative w-fit max-w-screen left-1/2 -translate-x-1/2 overflow-visible bg-background px-2">
+    <div className="w-full flex items-center justify-center overflow-clip bg-background">
       <GitHubCalendar
         loading={false}
         style={{
-          width: "full",
+          width: "fit-content",
         }}
-        blockRadius={0}
+        blockRadius={2}
         username={username}
         colorScheme={theme === "dark" ? "dark" : "light"}
         theme={{
-          light: ['#e5e5e5', '#a3a3a3', '#737373', '#525252', '#111111'],
-          dark: ['#262626', '#52525b', '#71717a', '#a1a1aa', '#ededed'],
+          light: ["#e5e5e5", "#a3a3a3", "#737373", "#525252", "#111111"],
+          dark: ["#262626", "#52525b", "#71717a", "#a1a1aa", "#ededed"],
         }}
         blockSize={blockSize}
       />
