@@ -71,7 +71,7 @@ export function Navbar() {
               <Link
                 href={path}
                 className={`flex items-center group transition-colors text-muted-foreground hover:text-primary gap-1 justify-center duration-300 [&svg]:size-4 ${pathname == path && "text-primary"}`}
-              >
+                prefetch={true}>
                 <div className="sm:hidden block">{icon}</div>
                 <div className="hidden sm:block">{name}</div>
               </Link>
@@ -110,8 +110,7 @@ export default function Shimmer({
           className="absolute bg-clip-text text-transparent bg-gradient-to-r from-transparent via-(--text) to-transparent z-10 top-0 left-0 right-0 [background-size:50%_100%] [background-repeat:no-repeat]"
           style={{
             animation: "wave 2s linear infinite",
-          }}
-        >
+          }}>
           <style jsx>{`
             @keyframes wave {
               0% {

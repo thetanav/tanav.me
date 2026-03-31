@@ -12,16 +12,12 @@ import {
 } from "lucide-react";
 import GithubCalendarClient from "./components/github-calendar";
 import Image from "next/image";
-import { CPlusPlus, Go, Python, RustDark, TypeScript } from "developer-icons";
+import { CPlusPlus, Go, Python, TypeScript } from "developer-icons";
 import ViewerNumber from "./components/viewer";
-import { SiLeetcode, SiMedium, SiRust } from "react-icons/si";
+import { SiLeetcode, SiRust } from "react-icons/si";
 import Link from "next/link";
 import IconLink from "./components/icon-link";
-import {
-  IconBrandLinkedin,
-  IconBrandMedium,
-  IconBrandX,
-} from "@tabler/icons-react";
+import { IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
 import Border from "./components/border";
 import { TechMarquee } from "./components/techmarquee";
 import HomeText from "./components/home-text";
@@ -36,7 +32,7 @@ export default function Page() {
       <section className="flex flex-col gap-6 px-3 sm:px-6">
         <Image
           src="/header.jpg"
-          alt="header header"
+          alt="Tanav Poswal portfolio banner"
           width={800}
           height={200}
           className="rounded-lg border border-(--border)"
@@ -83,7 +79,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold">
             <SendIcon className="w-4 h-4 group-hover:-rotate-6 transition-transform duration-200" />
-            Get a touch
+            Get in touch
           </a>
         </div>
 
@@ -121,7 +117,7 @@ export default function Page() {
       <Border />
 
       <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
-        Some of places I worked
+        Experience
       </h2>
 
       <Border />
@@ -174,7 +170,7 @@ export default function Page() {
       <Border />
 
       <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
-        Some of my Projects
+        Featured Projects
       </h2>
 
       <Border />
@@ -216,7 +212,7 @@ export default function Page() {
       <Border />
 
       <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
-        Some of my Opensource Work
+        Open Source
       </h2>
 
       <Border />
@@ -243,7 +239,7 @@ export default function Page() {
       <Border />
 
       <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
-        Some of my Writings
+        Writing
       </h2>
 
       <Border />
@@ -259,7 +255,7 @@ export default function Page() {
                 <h3 className="text-sm text-(--text) group-hover:opacity-70 transition-opacity">
                   {post.title}
                 </h3>
-                <span className="text-xs text(--text-muted) tabular-nums">
+                <span className="text-xs text-(--text-muted) tabular-nums">
                   {post.date.toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",

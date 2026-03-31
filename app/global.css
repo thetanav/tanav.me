@@ -211,11 +211,6 @@ article.prose img {
   margin-bottom: 1.5em;
 }
 
-.app-border {
-  border-right: 1px dashed var(--border);
-  border-left: 1px dashed var(--border);
-}
-
 @theme inline {
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;

@@ -10,14 +10,13 @@
 This application requires Node.js v18.17+.
 
 ```bash
-git clone https://github.com/leerob/leerob.io.git
-cd leerob.io
+git clone https://github.com/thetanav/tanav.me.git
+cd tanav.me
 bun install
-bun run setup # Remove all of my personal information
 bun dev
 ```
 
-Create a `.env.local` file similar to [`.env.example`](https://github.com/leerob/leerob.io/blob/main/.env.example).
+Create a `.env.local` file with the environment variables required for your local setup.
 
 For the Spotify now-playing card, also add:
 
