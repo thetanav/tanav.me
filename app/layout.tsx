@@ -65,32 +65,33 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
-      <ViewTransition>
-        <body className={`${sans.className} antialiased`}>
-          <TooltipProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange={false}>
-              <PostHogProvider>
-                <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen border scroll-smooth bg-background relative sm:px-[18px]">
-                  <header className="px-2 sm:px-5 flex items-center justify-between py-4 pt-0">
-                    <Navbar />
-                    <ThemeToggle />
-                  </header>
-                  <Border />
-                  <main className="my-6">{children}</main>
-                  <Border />
+      {/*<ViewTransition>*/}
+      <body className={`${sans.className} antialiased overflow-y-scroll`}>
+        <TooltipProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange={false}
+          >
+            <PostHogProvider>
+              <div className="mx-auto max-w-2xl overflow-hidden py-5 min-h-screen border scroll-smooth bg-background relative sm:px-[18px]">
+                <header className="px-2 sm:px-5 flex items-center justify-between py-4 pt-0">
+                  <Navbar />
+                  <ThemeToggle />
+                </header>
+                <Border />
+                <main className="my-6">{children}</main>
+                <Border />
 
-                  <div className="absolute h-full w-5 bottom-0 top-0 -right-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block" />
-                  <div className="absolute h-full w-5 top-0 bottom-0 -left-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block" />
-                </div>
-              </PostHogProvider>
-            </ThemeProvider>
-          </TooltipProvider>
-        </body>
-      </ViewTransition>
+                <div className="absolute h-full w-5 bottom-0 top-0 -right-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block" />
+                <div className="absolute h-full w-5 top-0 bottom-0 -left-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block" />
+              </div>
+            </PostHogProvider>
+          </ThemeProvider>
+        </TooltipProvider>
+      </body>
+      {/*</ViewTransition>*/}
     </html>
   );
 }
