@@ -22,24 +22,17 @@ export default function HomeText({ className = "" }: { className?: string }) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <div className="flex justify-center items-end select-none ml-2">
-      {"Hi! I am".split("").map((current, i) => (
-        <motion.div
-          key={i}
-          ref={ref}
-          variants={pullupVariant}
-          initial="initial"
-          animate={isInView ? "animate" : ""}
-          custom={i}
-          className={cn(
-            "text-3xl font-semibold text-(--text-muted) tracking-normal",
-            serif.className,
-            className,
-          )}
-        >
-          {current == " " ? <span>&nbsp;</span> : current}
-        </motion.div>
-      ))}
+    <div className="flex justify-center items-end select-none ml-2 -mb-1">
+      <p
+        className={cn(
+          "text-4xl font-semibold text-(--text-muted) tracking-tight",
+          serif.className,
+          className,
+        )}
+      >
+        Hi! I am
+      </p>
+
       <div className="w-1" />
       {"Tanav".split("").map((current, i) => (
         <motion.div

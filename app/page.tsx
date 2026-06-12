@@ -26,6 +26,7 @@ import Border from "./components/border";
 import { TechMarquee } from "./components/techmarquee";
 import HomeText from "./components/home-text";
 import ImagePop from "./components/image-pop";
+import Email from "@/components/email";
 
 export default function Page() {
   const recentProjects = projects.slice(0, 3);
@@ -79,12 +80,12 @@ export default function Page() {
             Resume
           </a>
           <a
-            href="https://cal.com/tanavposwal"
+            href="https://cal.com/tanavcodes"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
           >
-            <SendIcon className="w-4 h-4 group-hover:-rotate-6 transition-transform duration-200" />
+            <SendIcon className="w-4 h-4 group-hover:-rotate-5 transition" />
             Get in touch
           </a>
         </div>
@@ -105,12 +106,7 @@ export default function Page() {
           <IconLink link="https://leetcode.com/tanavcodes" tooltip="Leetcode">
             <SiLeetcode className="w-5 h-5" />
           </IconLink>
-          <IconLink link="https://leetcode.com/tanavcodes" tooltip="Kaggle">
-            <IconLetterK className="w-5 h-5" />
-          </IconLink>
-          <IconLink link="mailto:hey@tanav.me" tooltip="Email">
-            <MailIcon className="w-5 h-5" />
-          </IconLink>
+          <Email />
         </div>
       </section>
 
