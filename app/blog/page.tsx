@@ -23,7 +23,7 @@ export default async function Page() {
 
   return (
     <section className="flex flex-col gap-8">
-      <h1 className="text-2xl font-medium tracking-tight text-[var(--text)]">
+      <h1 className="sm:text-2xl text-xl font-medium tracking-tight text-[var(--text)]">
         Writing
       </h1>
       <div className="flex flex-col gap-8">
@@ -38,7 +38,7 @@ export default async function Page() {
                 <h3 className="font-medium text-[var(--text)] group-hover:opacity-70 transition-opacity">
                   {post.title}
                 </h3>
-                <ArrowRight className="h-4 w-4 text-[var(--text-muted)] opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-70  transition-all ease-in" />
+                <ArrowRight className="h-4 w-4 text-[var(--text-muted)] opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-70  transition ease-in" />
               </div>
               <span className="text-xs text-[var(--text-muted)] tabular-nums">
                 {formatDate(post.date)}

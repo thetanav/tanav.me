@@ -27,6 +27,7 @@ import { TechMarquee } from "./components/techmarquee";
 import HomeText from "./components/home-text";
 import ImagePop from "./components/image-pop";
 import Email from "@/components/email";
+import { Suspense } from "react";
 
 export default function Page() {
   const recentProjects = projects.slice(0, 3);
@@ -34,19 +35,33 @@ export default function Page() {
 
   return (
     <section className="flex flex-col gap-6">
-      <section className="flex flex-col gap-6 px-3 sm:px-6">
-        <Image
-          src="/header.jpg"
-          alt="Tanav Poswal portfolio banner"
-          width={800}
-          height={200}
-          className="rounded-lg border border-(--border)"
-        />
+      <section className="flex flex-col gap-6 px-4 sm:px-6">
+        <div className="rounded-lg border border-(--border) overflow-hidden relative h-auto aspect-18/6">
+          <Image
+            src="/header.jpg"
+            alt="Tanav Poswal portfolio banner"
+            width={2}
+            loading="eager"
+            height={0.5}
+            className="w-full h-full object-contain blur-sm scale-105"
+          />
+          <Image
+            src="/header.jpg"
+            alt="Tanav Poswal portfolio banner"
+            width={800}
+            loading="lazy"
+            height={200}
+            quality={75}
+            className="absolute top-0 bottom-0 z-10 h-full"
+          />
+        </div>
         <div className="flex items-end gap-3 relative">
           <ImagePop />
 
           <div className="absolute top-0 right-0">
-            <ViewerNumber />
+            <Suspense>
+              <ViewerNumber />
+            </Suspense>
           </div>
 
           <div className="w-full flex items-center justify-between">
@@ -74,7 +89,7 @@ export default function Page() {
             href="https://dub.sh/tanav-resume"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold"
+            className="px-4 py-2 ring-1 ring-border active:translate-y-0.5 transition-transform rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold"
           >
             <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
             Resume
@@ -83,7 +98,7 @@ export default function Page() {
             href="https://cal.com/tanavcodes"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 ring-1 ring-border rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
+            className="px-4 py-2 ring-1 ring-border active:translate-y-0.5 transition-transform rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
           >
             <SendIcon className="w-4 h-4 group-hover:-rotate-5 transition" />
             Get in touch
@@ -122,20 +137,20 @@ export default function Page() {
 
       <Border />
 
-      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+      <h2 className="text-lg font-semibold text-(--text) px-4 sm:px-6 -my-3">
         Experience
       </h2>
 
       <Border />
 
-      <section className="flex flex-col px-3 sm:px-6">
+      <section className="flex flex-col px-4 sm:px-6">
         <div className="flex flex-col gap-6">
           {experience.map((job) => (
             <div key={job.company} className="flex gap-3 w-full">
               <Image
                 alt={job.company}
-                width={80}
-                height={80}
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-md border border-[var(--border)]"
                 src={job.img}
               />
@@ -177,57 +192,13 @@ export default function Page() {
 
       <Border />
 
-      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
-        Featured Projects
-      </h2>
-
-      <Border />
-
-      <section className="flex flex-col gap-8 px-3 sm:px-6">
-        <div className="flex flex-col gap-6">
-          {recentProjects.map((project) => (
-            <a
-              href={project.web || project.git}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={project.name}
-              className="group flex items-center gap-4 cursor-pointer"
-            >
-              <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-(--border) bg-(--surface)">
-                <Image
-                  width={100}
-                  height={100}
-                  src={project.img}
-                  alt={project.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="text-(--text) transition-opacity capitalize text-sm font-semibold">
-                  {project.name}
-                </h3>
-                <p className="text-sm text-(--text-muted)">{project.brief}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-        <Link
-          href="/projects"
-          className="text-sm text-(--text-muted) hover:text-(--text) transition-colors"
-        >
-          View all projects →
-        </Link>
-      </section>
-
-      <Border />
-
-      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+      <h2 className="text-lg font-semibold text-(--text) px-4 sm:px-6 -my-3">
         Open Source
       </h2>
 
       <Border />
 
-      <section className="flex flex-col gap-8 px-3 sm:px-6">
+      <section className="flex flex-col gap-8 px-4 sm:px-6">
         <div className="flex flex-col gap-6">
           {oss.map((contri) => (
             <a
@@ -235,9 +206,9 @@ export default function Page() {
               href={contri.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 group-hover:opacity-70 transition-opacity"
+              className="group flex items-center gap-3 group-hover:opacity-70 transition-opacity"
             >
-              <GitPullRequestArrowIcon className="h-4 w-4" />
+              <GitPullRequestArrowIcon className="h-4 w-4 text-purple-600" />
               <h3 className="text-(--text) group-hover:opacity-70 text-sm transition-opacity">
                 {contri.name}
               </h3>
@@ -249,13 +220,13 @@ export default function Page() {
 
       <Border />
 
-      <h2 className="text-lg font-semibold text-(--text) px-3 sm:px-6 -my-3">
+      <h2 className="text-lg font-semibold text-(--text) px-4 sm:px-6 -my-3">
         Writing
       </h2>
 
       <Border />
 
-      <section className="flex flex-col gap-8 px-3 sm:px-6">
+      <section className="flex flex-col gap-8 px-4 sm:px-6">
         <div className="flex flex-col gap-6">
           {recentPosts.map((post) => (
             <Link

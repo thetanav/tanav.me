@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <section className="flex flex-col gap-8 px-3 sm:px-6">
-      <h1 className="text-2xl font-medium tracking-tight text-[var(--text)]">
+    <section className="flex flex-col gap-8 px-4 sm:px-6">
+      <h1 className="sm:text-2xl text-xl font-medium tracking-tight text-[var(--text)]">
         Experience
       </h1>
       <div className="flex flex-col gap-8">
         {experience.map((job) => (
-          <div className="flex gap-3 w-full" key={job.url}>
+          <div className="flex sm:flex-row flex-col gap-3 w-full" key={job.url}>
             <Image
               alt={job.company}
-              width={80}
-              height={80}
-              className="w-10 h-10 rounded-md border border-[var(--border)]"
+              width={40}
+              height={40}
+              className="w-12 h-12 sm:mb-0 mb-2 rounded-md border border-[var(--border)]"
               src={job.img}
             />
             <div className="flex flex-2 flex-col gap-2">

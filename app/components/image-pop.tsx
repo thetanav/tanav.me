@@ -11,14 +11,26 @@ export default function ImagePop() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Image
-          width={36}
-          height={36}
-          alt="my pfp"
-          className="ring-4 ring-(--text-muted)/20 rounded-xl cursor-pointer select-none active:translate-y-0.5 w-24"
-          src="/pfp.png"
-          draggable={false}
-        />
+        <div className="ring-4 overflow-hidden ring-(--text-muted)/20 rounded-xl relative cursor-pointer select-none active:translate-y-0.5 w-24">
+          <Image
+            width={1}
+            height={1}
+            alt="my pfp"
+            loading="eager"
+            className="w-full h-full object-contain blur-sm scale-105"
+            src="/pfp.png"
+            draggable={false}
+          />
+          <Image
+            width={50}
+            height={50}
+            alt="my pfp"
+            loading="lazy"
+            className="absolute top-0 bottom-0 z-10 h-full w-full"
+            src="/pfp.png"
+            draggable={false}
+          />
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-sm">
         <DialogTitle className="hidden">hidden</DialogTitle>

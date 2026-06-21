@@ -1,25 +1,13 @@
-"use client";
-import { EyeIcon, Loader } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChartNoAxesColumn, EyeIcon } from "lucide-react";
+import axios from "axios";
 
-export default function ViewsLast24() {
-  const [count, setCount] = useState<number | null>(null);
-
-  useEffect(() => {
-    fetch("/api/view-count")
-      .then((r) => r.json())
-      .then((d) => setCount(d.count))
-      .catch(() => setCount(null));
-  }, []);
+export default async function ViewsLast24() {
+  const { data } = await axios("https://tanav.me/api/view-count");
 
   return (
-    <div className="flex gap-2 items-center justify-center opacity-40">
-      <EyeIcon className="w-4 h-4" />
-      {!count || count === undefined ? (
-        <Loader className="text(--text-muted) animate-spin w-4" />
-      ) : (
-        <span className="text-(--text) text-sm font-semibold">{count}</span>
-      )}
+    <div className="flex gap-1 items-center justify-center opacity-40">
+      <ChartNoAxesColumn className="w-4 h-4" />
+      <span className="text-(--text) text-sm font-semibold">{data.count}</span>
     </div>
   );
 }

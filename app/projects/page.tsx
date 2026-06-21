@@ -11,20 +11,20 @@ const mono = Geist_Mono({
 
 function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
   return (
-    <div className="group flex">
+    <div className="group flex sm:flex-row flex-col">
       <Image
-        width={1000}
-        height={1000}
+        width={500}
+        height={500}
         src={img}
         alt={name}
         draggable={false}
-        className="object-cover aspect-video w-56 select-none border-4 border-double border-(--border) rounded-2xl"
+        className="object-cover aspect-video w-56 h-fit select-none sm:border-4 sm:border-double border border-(--border) rounded-xl"
       />
-      <div className="flex flex-col w-full px-3 py-2 justify-between">
+      <div className="flex flex-col w-full sm:px-3 pt-3 py-2 justify-between">
         <div className="flex flex-col -mt-2">
           <a
             href={git}
-            className="text-lg font-semibold text-[var(--text)] capitalize first-letter:text-lg hover:underline"
+            className="text-md sm:text-lg font-semibold text-[var(--text)] capitalize first-letter:text-lg hover:underline"
             target="_blank"
           >
             {name}
@@ -74,20 +74,13 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <section className="flex flex-col gap-6 px-3 sm:px-6">
+    <section className="flex flex-col gap-6 px-4 sm:px-6">
       <div className="flex w-full items-center justify-between">
-        <h1 className="text-2xl font-medium tracking-tight text-[var(--text)]">
+        <h1 className="text-xl sm:text-2xl font-medium tracking-tight text-[var(--text)]">
           Completed Projects
         </h1>
-        {/*<Tabs defaultValue="tab-1">
-          <TabsList>
-            <TabsTab value="tab-1">Web</TabsTab>
-            <TabsTab value="tab-2">Gen AI</TabsTab>
-            <TabsTab value="tab-3">AI ML</TabsTab>
-          </TabsList>
-        </Tabs>*/}
       </div>
-      <div className="flex flex-col space-y-3">
+      <div className="flex flex-col space-y-2">
         {projects.map((project) => (
           <ProjectCard key={project.name} {...project} />
         ))}

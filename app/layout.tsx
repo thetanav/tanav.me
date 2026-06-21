@@ -8,7 +8,6 @@ import { ThemeToggle } from "./components/theme-toggle";
 import { FeedbackButton } from "@/components/feedback";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Border from "./components/border";
-import { ViewTransition } from "react";
 
 const sans = DM_Sans({
   subsets: ["latin"],
@@ -82,7 +81,7 @@ export default function RootLayout({
                   <ThemeToggle />
                 </header>
                 <Border />
-                <main className="my-6">{children}</main>
+                <main className="my-6 min-h-[77vh]">{children}</main>
                 <Border />
                 <footer className="mt-4 mx-6 flex items-center justify-between text-sm text-muted-foreground">
                   <div>© {new Date().getFullYear()} Tanav</div>
