@@ -133,7 +133,9 @@ export default function Page() {
 
       <Border />
 
-      <GithubCalendarClient username="thetanav" blockSize={7} />
+      <Suspense>
+        <GithubCalendarClient username="thetanav" blockSize={7} />
+      </Suspense>
 
       <Border />
 
