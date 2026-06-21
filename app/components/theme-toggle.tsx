@@ -38,7 +38,10 @@ export function ThemeToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          type="button"
           onClick={toggleTheme}
+          aria-label={`Switch to ${current === "light" ? "dark" : "light"} theme`}
+          aria-pressed={current === "dark"}
           className="relative inline-flex h-7 w-7 items-center justify-center text-(--text) cursor-pointer outline-none overflow-hidden"
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -53,7 +56,7 @@ export function ThemeToggle() {
                   rotate: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
                 }}
               >
-                <MoonIcon className="w-4 h-4" />
+                <MoonIcon className="w-4 h-4" aria-hidden="true" />
               </motion.div>
             ) : (
               <motion.div
@@ -66,7 +69,7 @@ export function ThemeToggle() {
                   rotate: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
                 }}
               >
-                <SunIcon className="w-4 h-4" />
+                <SunIcon className="w-4 h-4" aria-hidden="true" />
               </motion.div>
             )}
           </AnimatePresence>

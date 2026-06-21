@@ -85,21 +85,27 @@ export function FeedbackButton() {
         <div className="mt-4 grid gap-4">
           <div>
             <p className="mb-2 text-sm font-medium">Rating</p>
-            <div className="flex items-center gap-1">
+            <div
+              className="flex items-center gap-1"
+              role="group"
+              aria-label="Rating"
+            >
               {[1, 2, 3, 4, 5].map((i) => {
                 const filled = hover ? i <= hover : i <= rating;
                 return (
                   <button
                     key={i}
                     type="button"
-                    aria-label={`${i} star${i > 1 ? "s" : ""}`}
+                    aria-label={`Rate ${i} out of 5 stars`}
+                    aria-pressed={rating === i}
                     onClick={() => setRating(i)}
                     onMouseEnter={() => setHover(i)}
                     onMouseLeave={() => setHover(0)}
                     className={`rounded p-1 text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/60`}
                   >
                     <Star
-                      className={`${filled ? "fill-amber-400 text-amber-500" : "text-amber-300"} size={20}`}
+                      aria-hidden="true"
+                      className={`size-5 ${filled ? "fill-amber-400 text-amber-500" : "text-amber-300"}`}
                     />
                   </button>
                 );
@@ -136,7 +142,7 @@ export function FeedbackButton() {
         <DialogFooter className="mt-4">
           <div className="flex w-full items-center justify-between gap-2">
             {statusMessage ? (
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm text-muted-foreground" aria-live="polite">
                 {statusMessage}
               </div>
             ) : (
@@ -145,13 +151,18 @@ export function FeedbackButton() {
 
             <div className="flex items-center gap-2">
               <Button
+                type="button"
                 variant="outline"
                 onClick={() => setOpen(false)}
                 disabled={loading}
               >
                 Cancel
               </Button>
-              <Button onClick={handleSubmit} disabled={rating === 0 || loading}>
+              <Button
+                type="button"
+                onClick={handleSubmit}
+                disabled={rating === 0 || loading}
+              >
                 {loading ? "Submitting..." : "Submit"}
               </Button>
             </div>

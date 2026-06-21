@@ -45,7 +45,9 @@ export default function AIPage() {
           <div
             key={message.id}
             className={`max-w-full ${
-              message.role === "user" ? "self-end opacity-70" : "self-start"
+              message.role === "user"
+                ? "self-end text-(--text-muted)"
+                : "self-start"
             }`}
           >
             {message.parts.map((part, partIndex) => {
@@ -86,6 +88,7 @@ export default function AIPage() {
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            aria-label="Ask a question about Tanav's work"
             placeholder="Ask me anything about Tanav's work..."
             rows={3}
             className="w-full resize-none text-sm outline-none"
@@ -95,7 +98,9 @@ export default function AIPage() {
             disabled={isLoading || input.trim().length === 0}
             className="text-sm disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-colors cursor-pointer flex gap-1 items-center"
           >
-            {isLoading && <Loader2 className="animate-spin size-3" />}
+            {isLoading && (
+              <Loader2 className="animate-spin size-3" aria-hidden="true" />
+            )}
             Send
           </button>
         </div>

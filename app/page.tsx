@@ -39,7 +39,7 @@ export default function Page() {
         <div className="rounded-lg border border-(--border) overflow-hidden relative h-auto aspect-18/6">
           <Image
             src="/header.jpg"
-            alt="Tanav Poswal portfolio banner"
+            alt=""
             width={2}
             loading="eager"
             height={0.5}
@@ -66,7 +66,10 @@ export default function Page() {
 
           <div className="w-full flex items-center justify-between">
             <HomeText />
-            <div className="gap-2 items-center hidden sm:flex">
+            <div
+              className="gap-2 items-center hidden sm:flex"
+              aria-hidden="true"
+            >
               <TypeScript className="w-5 h-5" />
               <Go className="w-7 h-7" />
               <Python className="w-5 h-5" />
@@ -91,7 +94,10 @@ export default function Page() {
             rel="noopener noreferrer"
             className="px-4 py-2 ring-1 ring-border active:translate-y-0.5 transition-transform rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--bg) to-(--text)/10 group font-semibold"
           >
-            <FileTextIcon className="rotate-6 w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
+            <FileTextIcon
+              aria-hidden="true"
+              className="rotate-6 w-4 h-4 group-hover:rotate-12 transition-transform duration-200"
+            />
             Resume
           </a>
           <a
@@ -100,26 +106,29 @@ export default function Page() {
             rel="noopener noreferrer"
             className="px-4 py-2 ring-1 ring-border active:translate-y-0.5 transition-transform rounded-xl flex gap-3 items-center justify-center cursor-pointer bg-linear-to-b from-(--text) to-muted-foreground text-(--bg) group font-semibold"
           >
-            <SendIcon className="w-4 h-4 group-hover:-rotate-5 transition" />
+            <SendIcon
+              aria-hidden="true"
+              className="w-4 h-4 group-hover:-rotate-5 transition"
+            />
             Get in touch
           </a>
         </div>
 
         <div className="flex flex-wrap gap-4 text-sm text-[var(--text)] items-center mt-2">
           <IconLink link="https://x.com/tanavtwt" tooltip="X">
-            <IconBrandX className="w-5 h-5" />
+            <IconBrandX className="w-5 h-5" aria-hidden="true" />
           </IconLink>
           <IconLink link="https://github.com/thetanav" tooltip="Github">
-            <Github className="w-5 h-5" />
+            <Github className="w-5 h-5" aria-hidden="true" />
           </IconLink>
           <IconLink
             link="https://linkedin.com/in/tanav-poswal"
             tooltip="Linkedin"
           >
-            <IconBrandLinkedin className="w-5 h-5" />
+            <IconBrandLinkedin className="w-5 h-5" aria-hidden="true" />
           </IconLink>
           <IconLink link="https://leetcode.com/tanavcodes" tooltip="Leetcode">
-            <SiLeetcode className="w-5 h-5" />
+            <SiLeetcode className="w-5 h-5" aria-hidden="true" />
           </IconLink>
           <Email />
         </div>
@@ -208,13 +217,19 @@ export default function Page() {
               href={contri.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 group-hover:opacity-70 transition-opacity"
+              className="group flex items-center gap-3 transition-colors"
             >
-              <GitPullRequestArrowIcon className="h-4 w-4 text-purple-600" />
-              <h3 className="text-(--text) group-hover:opacity-70 text-sm transition-opacity">
+              <GitPullRequestArrowIcon
+                aria-hidden="true"
+                className="h-4 w-4 text-purple-600"
+              />
+              <h3 className="text-(--text) group-hover:text-(--text-muted) text-sm transition-colors">
                 {contri.name}
               </h3>
-              <ChevronRightIcon className="ml-auto h-4 w-4 text-(--text-muted)" />
+              <ChevronRightIcon
+                aria-hidden="true"
+                className="ml-auto h-4 w-4 text-(--text-muted)"
+              />
             </a>
           ))}
         </div>
@@ -237,7 +252,7 @@ export default function Page() {
               className="group flex flex-col gap-2"
             >
               <div className="flex items-baseline justify-between">
-                <h3 className="text-sm text-(--text) group-hover:opacity-70 transition-opacity">
+                <h3 className="text-sm text-(--text) group-hover:text-(--text-muted) transition-colors">
                   {post.title}
                 </h3>
                 <span className="text-xs text-(--text-muted) tabular-nums">

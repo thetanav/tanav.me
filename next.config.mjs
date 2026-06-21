@@ -1,6 +1,5 @@
 const nextConfig = {
   reactStrictMode: true,
-  serverExternalPackages: ["bash-tool", "just-bash"],
   async rewrites() {
     return [
       {
@@ -16,9 +15,6 @@ const nextConfig = {
         destination: "https://us.i.posthog.com/decide",
       },
     ];
-  },
-  experimental: {
-    viewTransition: true,
   },
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,

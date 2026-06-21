@@ -13,8 +13,9 @@ export const TechMarquee = () => {
         {firstRow.map((itm) => (
           <div
             key={itm.name}
-            className="flex items-center gap-2 mx-2 text-(--text) opacity-60">
-            {itm.logo}
+            className="flex items-center gap-2 mx-2 text-(--text-muted)"
+          >
+            <span aria-hidden="true">{itm.logo}</span>
             <p className="font-semibold text-sm">{itm.name}</p>
           </div>
         ))}
@@ -23,14 +24,21 @@ export const TechMarquee = () => {
         {secondRow.map((itm) => (
           <div
             key={itm.name}
-            className="flex items-center gap-2 mx-2 text-(--text) opacity-60">
-            {itm.logo}
+            className="flex items-center gap-2 mx-2 text-(--text-muted)"
+          >
+            <span aria-hidden="true">{itm.logo}</span>
             <p className=" font-semibold text-sm">{itm.name}</p>
           </div>
         ))}
       </Marquee>
-      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+      <div
+        aria-hidden="true"
+        className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"
+      />
+      <div
+        aria-hidden="true"
+        className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"
+      />
     </div>
   );
 };

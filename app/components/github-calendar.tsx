@@ -87,8 +87,9 @@ export default function GithubCalendarClient({
   }, []);
 
   return (
-    <div
+    <section
       ref={calendarRef}
+      aria-label={`${username}'s GitHub contribution calendar`}
       className="w-full flex items-center justify-center overflow-clip bg-background"
     >
       {shouldLoadCalendar ? (
@@ -108,7 +109,7 @@ export default function GithubCalendarClient({
       ) : (
         <CalendarSkeleton />
       )}
-    </div>
+    </section>
   );
 }
 

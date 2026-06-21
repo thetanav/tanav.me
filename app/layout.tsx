@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       {/*<ViewTransition>*/}
       <body className={`${sans.className} antialiased overflow-y-scroll`}>
         <TooltipProvider>
@@ -81,7 +81,9 @@ export default function RootLayout({
                   <ThemeToggle />
                 </header>
                 <Border />
-                <main className="my-6 min-h-[77vh]">{children}</main>
+                <main id="main-content" className="my-6 min-h-[77vh]">
+                  {children}
+                </main>
                 <Border />
                 <footer className="mt-4 mx-6 flex items-center justify-between text-sm text-muted-foreground">
                   <div>© {new Date().getFullYear()} Tanav</div>
@@ -90,8 +92,14 @@ export default function RootLayout({
                   </div>
                 </footer>
 
-                <div className="absolute h-full w-5 bottom-0 top-0 -right-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block" />
-                <div className="absolute h-full w-5 top-0 bottom-0 -left-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block" />
+                <div
+                  aria-hidden="true"
+                  className="absolute h-full w-5 bottom-0 top-0 -right-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute h-full w-5 top-0 bottom-0 -left-px border-x border-x-(--border) bg-[image:repeating-linear-gradient(315deg,_var(--border)_0,_var(--border)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed hidden sm:block"
+                />
               </div>
             </PostHogProvider>
           </ThemeProvider>

@@ -10,6 +10,8 @@ const mono = Geist_Mono({
 });
 
 function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
+  const primaryUrl = git ?? web ?? info;
+
   return (
     <div className="group flex sm:flex-row flex-col">
       <Image
@@ -22,19 +24,24 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
       />
       <div className="flex flex-col w-full sm:px-3 pt-3 py-2 justify-between">
         <div className="flex flex-col -mt-2">
-          <a
-            href={git}
-            className="text-md sm:text-lg font-semibold text-[var(--text)] capitalize first-letter:text-lg hover:underline"
-            target="_blank"
-          >
-            {name}
-          </a>
+          {primaryUrl ? (
+            <a
+              href={primaryUrl}
+              className="text-md sm:text-lg font-semibold text-[var(--text)] capitalize first-letter:text-lg hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {name}
+            </a>
+          ) : (
+            <h2 className="text-md sm:text-lg font-semibold text-[var(--text)] capitalize first-letter:text-lg">
+              {name}
+            </h2>
+          )}
           <p className="text-sm text-[var(--text-muted)] first-letter:capitalize w-full wrap-anywhere">
             {brief}
           </p>
-          <div
-            className={`flex flex-wrap ${mono.className} gap-1 opacity-70 mt-1`}
-          >
+          <div className={`flex flex-wrap ${mono.className} gap-1 mt-1`}>
             {tech.map((t) => (
               <span
                 key={t}
@@ -47,18 +54,42 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
         </div>
         <div className="flex items-center justify-end gap-2">
           {web && (
-            <a href={web} target="_blank" rel="noopener">
-              <Globe className="w-5 h-5 opacity-40 hover:opacity-100 transition" />
+            <a
+              href={web}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${name} website`}
+            >
+              <Globe
+                aria-hidden="true"
+                className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors"
+              />
             </a>
           )}
           {git && (
-            <a href={git} target="_blank" rel="noopener">
-              <Github className="w-5 h-5 opacity-40 hover:opacity-100 transition" />
+            <a
+              href={git}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${name} GitHub repository`}
+            >
+              <Github
+                aria-hidden="true"
+                className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors"
+              />
             </a>
           )}
           {info && (
-            <a href={info} target="_blank" rel="noopener">
-              <TwitterIcon className="w-5 h-5 opacity-40 hover:opacity-100 transition" />
+            <a
+              href={info}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${name} announcement`}
+            >
+              <TwitterIcon
+                aria-hidden="true"
+                className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors"
+              />
             </a>
           )}
         </div>

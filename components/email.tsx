@@ -1,8 +1,7 @@
 "use client";
 
-import { TooManyEmbeddingValuesForCallError } from "ai";
-import { CheckIcon, CircleCheck, CopyCheck, MailIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { CircleCheck, MailIcon } from "lucide-react";
+import { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 export default function Email() {
@@ -23,18 +22,22 @@ export default function Email() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          type="button"
           onClick={handleCopy}
+          aria-label="Copy email address"
           className="cursor-pointer active:scale-[0.97] hover:scale-105 transition"
         >
           <div className="group flex gap-2 items-center">
             <span className="relative w-5 h-5 text-neutral-600 dark:text-neutral-400">
               <CircleCheck
+                aria-hidden="true"
                 className={
                   "absolute inset-0 w-5 h-5 transition-all duration-150 ease-out " +
                   (click ? "opacity-100" : "opacity-0")
                 }
               />
               <MailIcon
+                aria-hidden="true"
                 className={
                   "absolute inset-0 w-5 h-5 transition-all duration-150 ease-out " +
                   (click ? "opacity-0" : "opacity-100")

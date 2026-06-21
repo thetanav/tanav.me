@@ -23,14 +23,17 @@ const CodeBlock = ({ children, className }: any) => {
   return (
     <div className="group relative">
       <button
+        type="button"
         onClick={copyToClipboard}
-        className="absolute right-3 top-3 z-10 rounded-lg bg-[rgba(255,255,255,0.1)] px-3 py-1.5 text-xs font-semibold text-white opacity-0 backdrop-blur-sm transition-opacity hover:bg-[rgba(255,255,255,0.2)] group-hover:opacity-100"
-        aria-label="Copy code">
+        className="absolute right-3 top-3 z-10 rounded-lg bg-[rgba(255,255,255,0.1)] px-3 py-1.5 text-xs font-semibold text-white opacity-0 backdrop-blur-sm transition-opacity hover:bg-[rgba(255,255,255,0.2)] group-hover:opacity-100 focus:opacity-100"
+        aria-label="Copy code"
+      >
         {copied ? "✓ Copied!" : "Copy"}
       </button>
       <code
         ref={codeRef}
-        className={`hljs block bg-transparent p-6 text-sm leading-relaxed ${className}`}>
+        className={`hljs block bg-transparent p-6 text-sm leading-relaxed ${className}`}
+      >
         {children}
       </code>
     </div>

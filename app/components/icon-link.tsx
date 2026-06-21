@@ -22,7 +22,8 @@ export default function IconLink({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="opacity-80 hover:opacity-100 hover:scale-105 text-neutral-600 dark:text-neutral-400 overflow-y-visible transition"
+          aria-label={tooltip}
+          className="opacity-80 hover:opacity-100 hover:scale-105 text-neutral-700 dark:text-neutral-300 overflow-y-visible transition"
         >
           {children}
         </a>

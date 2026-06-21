@@ -70,11 +70,15 @@ export function Navbar() {
             <TooltipTrigger asChild>
               <Link
                 href={path}
+                aria-label={name}
+                aria-current={pathname === path ? "page" : undefined}
                 className={`flex items-center group transition-colors text-muted-foreground hover:text-primary gap-1 justify-center duration-300 [&svg]:size-4 ${pathname == path && "text-primary"}`}
                 prefetch={true}
               >
-                <div className="sm:hidden block">{icon}</div>
-                <div className="hidden sm:block">{name}</div>
+                <span className="sm:hidden block" aria-hidden="true">
+                  {icon}
+                </span>
+                <span className="hidden sm:block">{name}</span>
               </Link>
             </TooltipTrigger>
             <TooltipContent>
@@ -104,10 +108,11 @@ export default function Shimmer({
     <div className={`inline-block select-none ${className}`}>
       <div className="relative overflow-hidden">
         {/* Base text */}
-        <span className="text-(--text)/40">{text}</span>
+        <span className="text-(--text-muted)">{text}</span>
 
         {/* Shimmering overlay */}
         <div
+          aria-hidden="true"
           className="absolute bg-clip-text text-transparent bg-gradient-to-r from-transparent via-(--text) to-transparent z-10 top-0 left-0 right-0 [background-size:50%_100%] [background-repeat:no-repeat]"
           style={{
             animation: "wave 2s linear infinite",
