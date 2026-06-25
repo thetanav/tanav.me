@@ -70,9 +70,8 @@ export function FeedbackButton() {
 
   return (
     <Dialog open={open} onOpenChange={(v) => setOpen(v)}>
-      <DialogTrigger asChild>
-        <Button variant="link">Feedback</Button>
-      </DialogTrigger>
+      <DialogTrigger render={<Button variant="link">Feedback</Button>} />
+
       <DialogContent className="w-full max-w-md">
         <DialogHeader>
           <DialogTitle>Send feedback</DialogTitle>

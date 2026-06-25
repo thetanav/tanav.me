@@ -31,36 +31,37 @@ export function ThemeToggle() {
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${current === "light" ? "dark" : "light"} theme`}
-          aria-pressed={current === "dark"}
-          className="group relative inline-flex h-7 w-7 items-center justify-center text-(--text) cursor-pointer outline-none duration-300"
-        >
-          {mounted && (
-            <div className="relative w-4 h-4">
-              <MoonIcon
-                className={`absolute inset-0 w-full h-full transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  current === "light"
-                    ? "opacity-100 scale-100 rotate-0"
-                    : "opacity-0 scale-50 rotate-90"
-                }`}
-                aria-hidden="true"
-              />
-              <SunIcon
-                className={`absolute inset-0 w-full h-full transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  current === "dark"
-                    ? "opacity-100 scale-100 rotate-0"
-                    : "opacity-0 scale-50 -rotate-90"
-                }`}
-                aria-hidden="true"
-              />
-            </div>
-          )}
-        </button>
-      </TooltipTrigger>
+      <TooltipTrigger
+        render={
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="group relative inline-flex h-7 w-7 items-center justify-center text-(--text) cursor-pointer outline-none duration-300"
+          >
+            {mounted && (
+              <div className="relative w-4 h-4">
+                <MoonIcon
+                  className={`absolute inset-0 w-full h-full transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                    current === "light"
+                      ? "opacity-100 scale-100 rotate-0"
+                      : "opacity-0 scale-50 rotate-90"
+                  }`}
+                  aria-hidden="true"
+                />
+                <SunIcon
+                  className={`absolute inset-0 w-full h-full transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                    current === "dark"
+                      ? "opacity-100 scale-100 rotate-0"
+                      : "opacity-0 scale-50 -rotate-90"
+                  }`}
+                  aria-hidden="true"
+                />
+              </div>
+            )}
+          </button>
+        }
+      />
+
       <TooltipContent>
         <p>
           Toggle Theme{" "}

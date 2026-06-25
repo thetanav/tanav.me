@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Ghost,
-  Home,
-  Notebook,
-  Presentation,
-} from "lucide-react";
+import { Ghost, Home, Notebook, Presentation } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -59,20 +54,22 @@ export function Navbar() {
       {Object.entries(navItems).map(([path, { name, icon, short }]) => {
         return (
           <Tooltip key={path}>
-            <TooltipTrigger asChild>
-              <Link
-                href={path}
-                aria-label={name}
-                aria-current={pathname === path ? "page" : undefined}
-                className={`flex items-center group transition-colors text-muted-foreground hover:text-primary gap-1 justify-center duration-300 [&svg]:size-4 ${pathname == path && "text-primary"}`}
-                prefetch={true}
-              >
-                <span className="sm:hidden block" aria-hidden="true">
-                  {icon}
-                </span>
-                <span className="hidden sm:block">{name}</span>
-              </Link>
-            </TooltipTrigger>
+            <TooltipTrigger
+              render={
+                <Link
+                  href={path}
+                  aria-label={name}
+                  aria-current={pathname === path ? "page" : undefined}
+                  className={`flex items-center group transition-colors text-muted-foreground hover:text-primary gap-1 justify-center duration-300 [&svg]:size-4 ${pathname == path && "text-primary"}`}
+                  prefetch={true}
+                >
+                  <span className="sm:hidden block" aria-hidden="true">
+                    {icon}
+                  </span>
+                  <span className="hidden sm:block">{name}</span>
+                </Link>
+              }
+            />
             <TooltipContent>
               <p>
                 {name}{" "}

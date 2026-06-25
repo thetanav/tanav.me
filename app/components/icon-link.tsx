@@ -17,17 +17,19 @@ export default function IconLink({
 }) {
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={tooltip}
-          className="opacity-80 hover:opacity-100 hover:scale-105 text-neutral-700 dark:text-neutral-300 overflow-y-visible transition"
-        >
-          {children}
-        </a>
-      </TooltipTrigger>
+      <TooltipTrigger
+        render={
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={tooltip}
+            className="opacity-80 hover:opacity-100 hover:scale-105 text-neutral-700 dark:text-neutral-300 overflow-y-visible transition"
+          >
+            {children}
+          </a>
+        }
+      />
       <TooltipContent side="bottom">
         <p>{tooltip}</p>
       </TooltipContent>

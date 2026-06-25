@@ -5,7 +5,7 @@ import {
   ChevronRightIcon,
   GitPullRequestArrowIcon,
   FileTextIcon,
-  Github,
+  GithubIcon,
   SendIcon,
 } from "lucide-react";
 import GithubCalendarClient from "./components/github-calendar";
@@ -16,6 +16,7 @@ import { SiLeetcode, SiRust } from "react-icons/si";
 import Link from "next/link";
 import IconLink from "./components/icon-link";
 import {
+  IconBrandGithub,
   IconBrandLinkedin,
   IconBrandX,
 } from "@tabler/icons-react";
@@ -116,7 +117,7 @@ export default function Page() {
             <IconBrandX className="w-5 h-5" aria-hidden="true" />
           </IconLink>
           <IconLink link="https://github.com/thetanav" tooltip="Github">
-            <Github className="w-5 h-5" aria-hidden="true" />
+            <IconBrandGithub className="w-5 h-5" aria-hidden="true" />
           </IconLink>
           <IconLink
             link="https://linkedin.com/in/tanav-poswal"

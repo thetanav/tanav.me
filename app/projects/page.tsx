@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { projects } from "../../lib/projects";
 import type { Project } from "../../lib/projects";
 import Image from "next/image";
-import { Github, Globe, TwitterIcon } from "lucide-react";
+import { Globe } from "lucide-react";
 import { Geist_Mono } from "next/font/google";
+import { IconBrandGithub, IconBrandTwitter } from "@tabler/icons-react";
 
 const mono = Geist_Mono({
   subsets: ["latin"],
@@ -73,7 +74,7 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
               rel="noopener noreferrer"
               aria-label={`Open ${name} GitHub repository`}
             >
-              <Github
+              <IconBrandGithub
                 aria-hidden="true"
                 className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors"
               />
@@ -86,7 +87,7 @@ function ProjectCard({ img, name, brief, tech, web, git, info }: Project) {
               rel="noopener noreferrer"
               aria-label={`Open ${name} announcement`}
             >
-              <TwitterIcon
+              <IconBrandTwitter
                 aria-hidden="true"
                 className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors"
               />
