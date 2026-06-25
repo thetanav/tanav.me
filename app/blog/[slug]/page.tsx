@@ -20,12 +20,15 @@ function getReadingTime(content: string): string {
   return `${minutes} min read`;
 }
 
-const formatDate = (value: string) =>
-  new Date(value).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+const MONTHS = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+] as const;
+
+const formatDate = (value: string) => {
+  const [year, month, day] = value.split("-");
+  return `${MONTHS[parseInt(month) - 1]} ${parseInt(day)}, ${year}`;
+};
 
 function getPostContent(slug) {
   const folder = "blogs/";

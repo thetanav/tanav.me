@@ -7,12 +7,14 @@ export const metadata: Metadata = {
   description: "Blogs from Tanav Poswal",
 };
 
-const formatDate = (date: Date) =>
-  date.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+const MONTHS = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+] as const;
+
+const formatDate = (date: Date) => {
+  return `${MONTHS[date.getUTCMonth()]} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
+};
 
 export default async function Page() {
   const posts = getBlogMetadata("blogs");

@@ -5,7 +5,6 @@ import {
   ChevronRightIcon,
   GitPullRequestArrowIcon,
   FileTextIcon,
-  GithubIcon,
   SendIcon,
 } from "lucide-react";
 import GithubCalendarClient from "./components/github-calendar";
@@ -254,10 +253,23 @@ export default function Page() {
                   {post.title}
                 </h3>
                 <span className="text-xs text-(--text-muted) tabular-nums">
-                  {post.date.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                  })}
+                  {
+                    [
+                      "Jan",
+                      "Feb",
+                      "Mar",
+                      "Apr",
+                      "May",
+                      "Jun",
+                      "Jul",
+                      "Aug",
+                      "Sep",
+                      "Oct",
+                      "Nov",
+                      "Dec",
+                    ][post.date.getUTCMonth()]
+                  }{" "}
+                  {post.date.getUTCFullYear()}
                 </span>
               </div>
             </Link>
