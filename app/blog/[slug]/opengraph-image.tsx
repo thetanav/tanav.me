@@ -13,7 +13,7 @@ type ImageProps = {
 
 function getPost(slug: string) {
   try {
-    const content = fs.readFileSync(`posts/${slug}.md`, "utf8");
+    const content = fs.readFileSync(`blogs/${slug}.md`, "utf8");
     const parsed = matter(content);
 
     return {
@@ -28,8 +28,18 @@ function getPost(slug: string) {
 }
 
 const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ] as const;
 
 function formatPostDate(date?: string) {
