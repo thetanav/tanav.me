@@ -1,10 +1,6 @@
 import getBlogMetadata from "lib/posts";
-import { ArrowRight } from "lucide-react";
 import { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
 import Link from "next/link";
-
-const serif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Blogs",

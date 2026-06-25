@@ -1,9 +1,8 @@
 "use client";
 
-import { XIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const ImgBlock = ({ src, alt, className }: any) => {
+const ImgBlock = ({ src, alt }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);

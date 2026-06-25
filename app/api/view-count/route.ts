@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 const redis = Redis.fromEnv();
 const KEY = "views";
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   const cookieStore = await cookies();
   let id: string | undefined = cookieStore.get("visitorId")?.value;
 

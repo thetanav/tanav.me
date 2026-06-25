@@ -1,17 +1,10 @@
 "use client";
 
 import {
-  BrainCircuit,
-  BrainCircuitIcon,
-  ChevronLeft,
   Ghost,
-  GhostIcon,
   Home,
-  HomeIcon,
   Notebook,
-  NotebookIcon,
   Presentation,
-  PresentationIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -63,7 +56,7 @@ export function Navbar() {
 
   return (
     <nav className="flex items-center justify-center gap-4 text-xs sm:text-sm font-medium overflow-hiddens ml-2">
-      {Object.entries(navItems).map(([path, { name, icon, short }], index) => {
+      {Object.entries(navItems).map(([path, { name, icon, short }]) => {
         return (
           <Tooltip key={path}>
             <TooltipTrigger asChild>

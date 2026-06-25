@@ -1,11 +1,9 @@
-import { projects } from "../lib/projects";
 import { oss } from "../lib/oss";
 import getBlogMetadata from "../lib/posts";
 import { experience } from "../lib/experience";
 import {
   ChevronRightIcon,
   GitPullRequestArrowIcon,
-  MailIcon,
   FileTextIcon,
   Github,
   SendIcon,
@@ -20,7 +18,6 @@ import IconLink from "./components/icon-link";
 import {
   IconBrandLinkedin,
   IconBrandX,
-  IconLetterK,
 } from "@tabler/icons-react";
 import Border from "./components/border";
 import { TechMarquee } from "./components/techmarquee";

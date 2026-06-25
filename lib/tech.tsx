@@ -7,25 +7,10 @@ import {
   IconBrandReact,
   IconBrandTailwind,
   IconBrandTypescript,
-  IconFlask,
-  IconLetterA,
   IconLetterE,
-  IconPepper,
 } from "@tabler/icons-react";
 import {
-  AWS,
-  BunJs,
-  Cloudflare,
-  Git,
-  MongoDB,
-  PostgreSQL,
-  Redis,
-  Tensorflow,
-} from "developer-icons";
-import {
   SiArchlinux,
-  SiAwslambda,
-  SiAwsorganizations,
   SiBun,
   SiCloudflare,
   SiFlask,
